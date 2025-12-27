@@ -46,6 +46,14 @@ enum class ShapeTypes
 class ShapeType
 {
    public:
+    /**
+     * @brief Create a shape of the specified type
+     * @param type The Type of the shape to create
+     * @param pos Initial position
+     * @param size1 Primary size (radius for circle, width for rectangle, side for squre)
+     * @param size2 Secondary size (height for rectangle, ignored for others)
+     * @return A Shape variant containing the created shape
+     */
     static std::unique_ptr<Shape> create(ShapeTypes type,
                                          const Vec& pos,
                                          double size1 = 1.0,
