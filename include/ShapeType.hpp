@@ -28,6 +28,9 @@
 #include "Shape.hpp"
 #include "Vec.hpp"
 
+/**
+ * @brief Enumeration of avaiblable shape types
+ */
 enum class ShapeTypes
 {
     Circle,
@@ -35,18 +38,26 @@ enum class ShapeTypes
     Square
 };
 
+/**
+ * @brief Factory for creating shapes
+ *
+ * Creates shape instances based on the specified type.
+ */
 class ShapeType
 {
    public:
-    static std::unique_ptr<Shape> create(ShapeTypes type, const Vec& pos)
+    static std::unique_ptr<Shape> create(ShapeTypes type,
+                                         const Vec& pos,
+                                         double size1 = 1.0,
+                                         double size2 = 1.0)
     {
         switch (type) {
             case ShapeTypes::Circle:
-                return std::make_unique<Circle>(pos, 1.0);
+                return std::make_unique<Circle>(pos, size1);
             case ShapeTypes::Rectangle:
-                return std::make_unique<Rectangle>(pos, 1.0, 2.0);
+                return std::make_unique<Rectangle>(pos, size1, size2);
             case ShapeTypes::Square:
-                return std::make_unique<Square>(pos, 1.0);
+                return std::make_unique<Square>(pos, size1);
         }
         throw std::invalid_argument("Unknown shape type");
     }
