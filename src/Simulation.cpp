@@ -123,7 +123,6 @@ void Simulation::randomPush(Shape& particle1, Shape& particle2)
     double distance = distDist(rng);
 
     Vec displacement = direction * distance;
-    Vec negDisplacement = direction * (-1.0 * distance);
     move(particle1, displacement);
-    move(particle2, negDisplacement);
+    move(particle2, displacement * (-1.0));
 }
