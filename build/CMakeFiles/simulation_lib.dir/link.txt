@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsimulation_lib.a CMakeFiles/simulation_lib.dir/src/Vec.cpp.o CMakeFiles/simulation_lib.dir/src/Shape.cpp.o CMakeFiles/simulation_lib.dir/src/Simulation.cpp.o
-/usr/bin/ranlib libsimulation_lib.a
