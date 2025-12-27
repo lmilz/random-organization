@@ -30,31 +30,31 @@
 // =========================================
 
 TEST(CircleCollisionTest, TouchingCircles) {
-    Circle c1(Vec(0.0, 0.0), 5.0);
-    Circle c2(Vec(10.0, 0.0), 5.0);
+    auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
+    auto c2 = CircleData(Vec(10.0, 0.0), 5.0);
 
-    EXPECT_FALSE(c1.overlaps(c2));
+    EXPECT_FALSE(overlaps(c1, c2));
 }
 
 TEST(CircleCollisionTest, OverlappingCircles) { 
-    Circle c1(Vec(0.0, 0.0), 5.0);
-    Circle c2(Vec(8.0, 0.0), 5.0);
+    auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
+    auto c2 = CircleData(Vec(8.0, 0.0), 5.0);
 
-    EXPECT_TRUE(c1.overlaps(c2));
+    EXPECT_TRUE(overlaps(c1, c2));
 }
 
 TEST(CircleCollisionTest, SeparatedCircles) {
-    Circle c1(Vec(0.0, 0.0), 5.0);
-    Circle c2(Vec(20.0, 0.0), 5.0);
+    auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
+    auto c2 = CircleData(Vec(20.0, 0.0), 5.0);
 
-    EXPECT_FALSE(c1.overlaps(c2));
+    EXPECT_FALSE(overlaps(c1, c2));
 }
 
 TEST(CircleCollisionTest, ConcentricCircles) {
-    Circle c1(Vec(0.0, 0.0), 5.0);
-    Circle c2(Vec(0.0, 0.0), 3.0);
+    auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
+    auto c2 = CircleData(Vec(0.0, 0.0), 3.0);
 
-    EXPECT_TRUE(c1.overlaps(c2));
+    EXPECT_TRUE(overlaps(c1, c2));
 }
 
 // =========================================
@@ -62,25 +62,25 @@ TEST(CircleCollisionTest, ConcentricCircles) {
 // =========================================
 
 TEST(RectangleCollisionTest, TouchingRectangles) {
-    Rectangle r1(Vec(0.0, 0.0), 10.0, 10.0);
-    Rectangle r2(Vec(10.0, 0.0), 10.0, 10.0);
-    EXPECT_FALSE(r1.overlaps(r2));
+    auto r1 = RectangleData(Vec(0.0, 0.0), 10.0, 10.0);
+    auto r2 = RectangleData(Vec(10.0, 0.0), 10.0, 10.0);
+    EXPECT_FALSE(overlaps(r1, r2));
 }
 
 TEST(RectangleCollisionTest, OverlappingRectangles) {
-    Rectangle r1(Vec(0.0, 0.0), 10.0, 10.0);
-    Rectangle r2(Vec(8.0, 0.0), 10.0, 10.0);
-    EXPECT_TRUE(r1.overlaps(r2));
+    auto r1 = RectangleData(Vec(0.0, 0.0), 10.0, 10.0);
+    auto r2 = RectangleData(Vec(8.0, 0.0), 10.0, 10.0);
+    EXPECT_TRUE(overlaps(r1, r2));
 }
 
 TEST(RectangleCollisionTest, SeparatedRectangles) {
-    Rectangle r1(Vec(0.0, 0.0), 10.0, 10.0);
-    Rectangle r2(Vec(20.0, 0.0), 10.0, 10.0);
-    EXPECT_FALSE(r1.overlaps(r2));
+    auto r1 = RectangleData(Vec(0.0, 0.0), 10.0, 10.0);
+    auto r2 = RectangleData(Vec(20.0, 0.0), 10.0, 10.0);
+    EXPECT_FALSE(overlaps(r1, r2));
 }
 
 TEST(RectangleCollisionTest, ContainedRectangle) {
-    Rectangle r1(Vec(0.0, 0.0), 20.0, 20.0);
-    Rectangle r2(Vec(0.0, 0.0), 5.0, 5.0);
-    EXPECT_TRUE(r1.overlaps(r2));
+    auto r1 = RectangleData(Vec(0.0, 0.0), 20.0, 20.0);
+    auto r2 = RectangleData(Vec(0.0, 0.0), 5.0, 5.0);
+    EXPECT_TRUE(overlaps(r1, r2));
 }

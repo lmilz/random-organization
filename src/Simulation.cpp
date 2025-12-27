@@ -55,7 +55,7 @@ void Simulation::Run()
             break;
 
         for (const auto& [i, j] : overlaps) {
-            randomPush(*particles[i], *particles[j]);
+            randomPush(particles[i], particles[j]);
         }
 
         currentIteration++;
@@ -80,8 +80,9 @@ void Simulation::printParticles() const
     logger.blank();
     logger.info("Particle position:");
     for (size_t i = 0; i < particles.size(); i++) {
-        Vec pos = particles[i]->getPosition();
-        logger.info(i, ": Circle at (", pos.X(), ", ", pos.Y(), ")");
+        Vec pos = getPosition(particles[i]);
+        std::string typeName = getTypeName(particles[i]);
+        logger.info(i, ": ", typeName, " at (", pos.X(), ", ", pos.Y(), ")");
     }
 }
 
@@ -99,17 +100,17 @@ void Simulation::initParticles(uint16_t num)
 
 std::vector<std::pair<size_t, size_t>> Simulation::findOverlaps() const
 {
-    std::vector<std::pair<size_t, size_t>> overlaps;
+    std::vector<std::pair<size_t, size_t>> overlapPairs;
 
     for (size_t i = 0; i < particles.size(); i++) {
         for (size_t j = i + 1; j < particles.size(); j++) {
-            if (i != j && particles[i]->overlaps(*particles[j])) {
-                overlaps.push_back({i, j});
+            if (overlaps(particles[i], particles[j])) {
+                overlapPairs.push_back({i, j});
             }
         }
     }
 
-    return overlaps;
+    return overlapPairs;
 }
 
 void Simulation::randomPush(Shape& particle1, Shape& particle2)
@@ -123,6 +124,6 @@ void Simulation::randomPush(Shape& particle1, Shape& particle2)
 
     Vec displacement = direction * distance;
     Vec negDisplacement = direction * (-1.0 * distance);
-    particle1.move(displacement);
-    particle2.move(negDisplacement);
+    move(particle1, displacement);
+    move(particle2, negDisplacement);
 }

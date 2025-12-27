@@ -54,18 +54,15 @@ class ShapeType
      * @param size2 Secondary size (height for rectangle, ignored for others)
      * @return A Shape variant containing the created shape
      */
-    static std::unique_ptr<Shape> create(ShapeTypes type,
-                                         const Vec& pos,
-                                         double size1 = 1.0,
-                                         double size2 = 1.0)
+    static Shape create(ShapeTypes type, const Vec& pos, double size1 = 1.0, double size2 = 1.0)
     {
         switch (type) {
             case ShapeTypes::Circle:
-                return std::make_unique<Circle>(pos, size1);
+                return CircleData(pos, size1);
             case ShapeTypes::Rectangle:
-                return std::make_unique<Rectangle>(pos, size1, size2);
+                return RectangleData(pos, size1, size2);
             case ShapeTypes::Square:
-                return std::make_unique<Square>(pos, size1);
+                return SquareData(pos, size1);
         }
         throw std::invalid_argument("Unknown shape type");
     }

@@ -24,24 +24,27 @@
  * @file: Shape.hpp
  * @brief Geometric shapes for Random Organization Simulation
  *
- * This header defines geometric shapes using std::variant for type-safe collision detection without inheritance hierarchy.
+ * This header defines geometric shapes using std::variant for type-safe collision detection without
+ * inheritance hierarchy.
  */
 
 #ifndef SHAPE_H
 #define SHAPE_H
 
 // Includes
+#include <variant>
+
 #include "Vec.hpp"
 
 /**
-* @brief Data structure for Circles
-*
-* Represents a circle defined by its center position and radius
-*/
+ * @brief Data structure for Circles
+ *
+ * Represents a circle defined by its center position and radius
+ */
 struct CircleData {
-    Vec position; ///< Center point of the circle
-    double radius; ///< Radius of the circle
-               
+    Vec position;   ///< Center point of the circle
+    double radius;  ///< Radius of the circle
+
     /**
      * @brief Constructor for CircleData
      * @param pos Center position
@@ -50,17 +53,16 @@ struct CircleData {
     CircleData(const Vec& pos, double r) : position(pos), radius(r) {}
 };
 
-
 /**
-* @brief Data structure for Rectangles
-*
-* Represents a rectangle defined by its center position, width and height.
-*/
+ * @brief Data structure for Rectangles
+ *
+ * Represents a rectangle defined by its center position, width and height.
+ */
 struct RectangleData {
-    Vec position;  ///< Center point of the rectangle
-    double width;  ///< Width of the rectangle
-    double height; ///< Height of the rectangle
-               
+    Vec position;   ///< Center point of the rectangle
+    double width;   ///< Width of the rectangle
+    double height;  ///< Height of the rectangle
+
     /**
      * @brief Constructor for RectangleData
      * @param pos Center position
@@ -71,20 +73,20 @@ struct RectangleData {
 };
 
 /**
-* @brief Data structure for Squares
-*
-* Represents a square defined by its center position and size.
-*/
+ * @brief Data structure for Squares
+ *
+ * Represents a square defined by its center position and size.
+ */
 struct SquareData {
-    Vec position; ///< Center point of the rectangle
-    double size; ///< Side length of the square
-               
+    Vec position;  ///< Center point of the rectangle
+    double size;   ///< Side length of the square
+
     /**
      * @brief Constructor for SquareData
      * @param pos Center position
      * @param s Size (must be > 0)
      */
-    RectangleData(const Vec& pos, double s) : position(pos), size(s) {}
+    SquareData(const Vec& pos, double s) : position(pos), size(s) {}
 };
 
 /**
@@ -99,7 +101,7 @@ using Shape = std::variant<CircleData, RectangleData, SquareData>;
  * @brief Handler for collision detection between all shape type combinations
  *
  * This struct provides operator() overloads for same shape collisions.
- * TODO: Overloads for every possible combination!
+ * TODO: Overlap between Circle and Rectangle
  */
 struct OverlapHandler {
     /**
@@ -124,9 +126,12 @@ struct OverlapHandler {
      */
     bool operator()(const RectangleData& a, const RectangleData& b) const
     {
-        return a.position.X() < b.position.X() + b.width && a.position.X() + a.width > b.position.X() && a.position.Y() < b.position.Y() + b.height && a.position.Y + a.height > b.position.Y();
+        return a.position.X() < b.position.X() + b.width
+               && a.position.X() + a.width > b.position.X()
+               && a.position.Y() < b.position.Y() + b.height
+               && a.position.Y() + a.height > b.position.Y();
     }
-    
+
     /**
      * @brief Check overlap between two squares
      * @param a First square
@@ -135,8 +140,53 @@ struct OverlapHandler {
      */
     bool operator()(const SquareData& a, const SquareData& b) const
     {
-        return a.position.X() < b.position.X() + b.size && a.position.X() + a.size > b.position.X() && a.position.Y() < b.position.Y() + b.size && a.position.Y + a.size > b.position.Y();
+        return a.position.X() < b.position.X() + b.size && a.position.X() + a.size > b.position.X()
+               && a.position.Y() < b.position.Y() + b.size
+               && a.position.Y() + a.size > b.position.Y();
     }
+
+    /**
+     * @brief Check overlap between circle and rectangle
+     * TODO: Implementation
+     * @param c Circle
+     * @param r Rectangle
+     * @return true if shapes overlap
+     */
+    bool operator()(const CircleData& c, const RectangleData& r) const { return false; }
+
+    /**
+     * @brief Check overlap between rectangle and circle (symmetric)
+     */
+    bool operator()(const RectangleData& r, const CircleData& c) const { return (*this)(c, r); }
+
+    /**
+     * @brief Check overlap between circle and square
+     */
+    bool operator()(const CircleData& c, const SquareData& s) const
+    {
+        // Convert square to rectangle and reuse logic
+        RectangleData rect(s.position, s.size, s.size);
+        return (*this)(c, rect);
+    }
+
+    /**
+     * @brief Check overlap between square and circle (symmetric)
+     */
+    bool operator()(const SquareData& s, const CircleData& c) const { return (*this)(c, s); }
+
+    /**
+     * @brief Check overlap between rectangle and square
+     */
+    bool operator()(const RectangleData& r, const SquareData& s) const
+    {
+        RectangleData rect(s.position, s.size, s.size);
+        return (*this)(r, rect);
+    }
+
+    /**
+     * @brief Check overlap between square and rectangle (symmetric)
+     */
+    bool operator()(const SquareData& s, const RectangleData& r) const { return (*this)(r, s); }
 };
 
 /**
@@ -167,7 +217,7 @@ struct OverlapHandler {
  */
 inline void setPosition(Shape& s, const Vec& pos)
 {
-    std::visot([](auto& shape) { shape.position = pos; }, s);
+    std::visit([&pos](auto& shape) { shape.position = pos; }, s);
 }
 
 /**
@@ -187,16 +237,20 @@ inline void move(Shape& s, const Vec& delta)
  */
 [[nodiscard]] inline std::string getTypeName(const Shape& s)
 {
-    return std::visit([](const auto& shape) -> std::string {
-          using T = std::decay_t<decltype(shape)>;
-          if constexpr (std::is_same_v<T, CircleData>) {
-              return "Circle";
-          } else if constexpr (std::is_same_v<T, RectangleData>) {
-              return "Rectangle";
-          } else {
-              return "Square";
-          }
-      }, s);
+    return std::visit(
+        [](const auto& shape) -> std::string {
+            using T = std::decay_t<decltype(shape)>;
+            if constexpr (std::is_same_v<T, CircleData>) {
+                return "Circle";
+            }
+            else if constexpr (std::is_same_v<T, RectangleData>) {
+                return "Rectangle";
+            }
+            else {
+                return "Square";
+            }
+        },
+        s);
 }
 
 #endif  // SHAPE_H

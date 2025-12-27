@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-add_library(simulation_lib src/Vec.cpp src/Shape.cpp src/Simulation.cpp)
+add_library(simulation_lib src/Vec.cpp src/Simulation.cpp)
 
 target_include_directories(simulation_lib PUBLIC ${PROJECT_SOURCE_DIR}/include)
 

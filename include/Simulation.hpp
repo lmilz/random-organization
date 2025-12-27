@@ -89,12 +89,13 @@ class Simulation
     void printParticles() const;
 
    private:
-    std::vector<std::unique_ptr<Shape>> particles;     ///< All particles in the simulation
+    std::vector<Shape> particles;                      ///< All particles in the simulation
     SimulationConfig config;                           ///< Configuration parameters
     std::mt19937 rng;                                  ///< Random number generator
     std::uniform_real_distribution<double> angleDist;  ///< Distribution for angles [0, 2pi]
-    std::uniform_real_distribution<double> distDist;   ///< Distribution for distances [0, maxDisplacement]
-    uint16_t currentIteration;                         ///< Current iteration
+    std::uniform_real_distribution<double>
+        distDist;               ///< Distribution for distances [0, maxDisplacement]
+    uint16_t currentIteration;  ///< Current iteration
 
     /**
      * @brief Initializes N random particles
