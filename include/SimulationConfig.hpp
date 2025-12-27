@@ -28,6 +28,8 @@
 #define SIMULATIONCONFIG_H
 
 // Includes
+#include <random>
+
 #include "ShapeType.hpp"
 
 /**

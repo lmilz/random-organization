@@ -39,11 +39,6 @@
 #define SIMULATION_H
 
 // Includes
-#include <iostream>
-#include <memory>
-#include <random>
-#include <set>
-#include <string>
 #include <vector>
 
 #include "Shape.hpp"
@@ -70,7 +65,7 @@ class Simulation
      *
      * @param cfg Configuration parameters (optional)
      */
-    Simulation(const SimulationConfig& cfg = SimulationConfig());
+    explicit Simulation(const SimulationConfig& cfg = SimulationConfig());
 
     /**
      * @brief Executes the simulation (until convergence or max iterations)

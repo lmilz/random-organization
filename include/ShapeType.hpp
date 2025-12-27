@@ -23,8 +23,7 @@
 #ifndef SHAPETYPE_H
 #define SHAPETYPE_H
 
-#include <memory>
-
+// Includes
 #include "Shape.hpp"
 #include "Vec.hpp"
 
