@@ -21,24 +21,28 @@
 // SOFTWARE.
 
 #include <memory>
-#include "Vec.hpp"
-#include "Shape.hpp"
 
-enum class ShapeType {
+#include "Shape.hpp"
+#include "Vec.hpp"
+
+enum class ShapeTypes
+{
     Circle,
     Rectangle,
     Square
 };
 
-class ShapeFactory {
-public:
-    static std::unique_ptr<Shape> create(ShapeType type, const Vec& pos) {
+class ShapeType
+{
+   public:
+    static std::unique_ptr<Shape> create(ShapeTypes type, const Vec& pos)
+    {
         switch (type) {
-            case ShapeType::Circle:
+            case ShapeTypes::Circle:
                 return std::make_unique<Circle>(pos, 1.0);
-            case ShapeType::Rectangle:
+            case ShapeTypes::Rectangle:
                 return std::make_unique<Rectangle>(pos, 1.0, 2.0);
-            case ShapeType::Square:
+            case ShapeTypes::Square:
                 return std::make_unique<Square>(pos, 1.0);
         }
         throw std::invalid_argument("Unknown shape type");

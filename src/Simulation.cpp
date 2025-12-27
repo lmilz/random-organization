@@ -93,7 +93,7 @@ void Simulation::initParticles(uint16_t num)
     particles.reserve(num);
     for (uint16_t index = 0; index < num; index++) {
         Vec pos(xDist(rng), yDist(rng));
-        particles.push_back(ShapeFactory::create(config.type, pos));
+        particles.push_back(ShapeType::create(config.type, pos));
     }
 }
 

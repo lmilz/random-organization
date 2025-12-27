@@ -1,0 +1,22 @@
+---
+Checks: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  readability-*,
+  performance-*,
+  modernize-*,
+  bugprone-*,
+  misc-*,
+  -readability-identifier-length,
+  -readability-magic-numbers,
+  -modernize-use-auto,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -modernize-use-nodiscard,
+  -modernize-use-trailing-return-type,
+  -bugprone-easily-swappable-parameters,
+  -google-readability-function-size,
+  -google-runtime-int
+
+#WarningsAsErrors: '*'
+HeaderFilterRegex: '.hpp'
+FormatStyle: file

@@ -47,7 +47,7 @@
 #include <vector>
 
 #include "Shape.hpp"
-#include "ShapeFactory.hpp"
+#include "ShapeType.hpp"
 
 /**
  * @brief Configuration parameters for simulaton
@@ -56,7 +56,7 @@
  * All parameters have sensible default values.
  */
 struct SimulationConfig {
-    ShapeType type;          ///< Type of particle (circle, rectangle, square)
+    ShapeTypes type;         ///< Type of particle (circle, rectangle, square)
     uint16_t numParticles;   ///< Number of particles
     double areaWidth;        ///< Width of the simulation domain
     double areaHeight;       ///< Height of the simulation domain
@@ -66,7 +66,7 @@ struct SimulationConfig {
     uint32_t seed;           ///< Seed for random number generator
 
     SimulationConfig()
-        : type(ShapeType::Circle),
+        : type(ShapeTypes::Circle),
           numParticles(10),
           areaWidth(100.0),
           areaHeight(100.0),

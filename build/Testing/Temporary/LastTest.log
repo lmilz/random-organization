@@ -1,0 +1,408 @@
+Start testing: Dec 27 20:56 CET
+----------------------------------------------------------
+1/15 Testing: Vec_TestGroup.DefaultConstructor
+1/15 Test: Vec_TestGroup.DefaultConstructor
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.DefaultConstructor" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.DefaultConstructor" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.DefaultConstructor
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.DefaultConstructor
+[       OK ] Vec_TestGroup.DefaultConstructor (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.DefaultConstructor" end time: Dec 27 20:56 CET
+"Vec_TestGroup.DefaultConstructor" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/15 Testing: Vec_TestGroup.ParameterizedConstructor
+2/15 Test: Vec_TestGroup.ParameterizedConstructor
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.ParameterizedConstructor" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.ParameterizedConstructor" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.ParameterizedConstructor
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.ParameterizedConstructor
+[       OK ] Vec_TestGroup.ParameterizedConstructor (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.ParameterizedConstructor" end time: Dec 27 20:56 CET
+"Vec_TestGroup.ParameterizedConstructor" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/15 Testing: Vec_TestGroup.VectorAddition
+3/15 Test: Vec_TestGroup.VectorAddition
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.VectorAddition" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.VectorAddition" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.VectorAddition
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.VectorAddition
+[       OK ] Vec_TestGroup.VectorAddition (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.VectorAddition" end time: Dec 27 20:56 CET
+"Vec_TestGroup.VectorAddition" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/15 Testing: Vec_TestGroup.VectorSubtraction
+4/15 Test: Vec_TestGroup.VectorSubtraction
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.VectorSubtraction" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.VectorSubtraction" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.VectorSubtraction
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.VectorSubtraction
+[       OK ] Vec_TestGroup.VectorSubtraction (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.VectorSubtraction" end time: Dec 27 20:56 CET
+"Vec_TestGroup.VectorSubtraction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/15 Testing: Vec_TestGroup.ScalarMultiplication
+5/15 Test: Vec_TestGroup.ScalarMultiplication
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.ScalarMultiplication" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.ScalarMultiplication" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.ScalarMultiplication
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.ScalarMultiplication
+[       OK ] Vec_TestGroup.ScalarMultiplication (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.ScalarMultiplication" end time: Dec 27 20:56 CET
+"Vec_TestGroup.ScalarMultiplication" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/15 Testing: Vec_TestGroup.Magnitude
+6/15 Test: Vec_TestGroup.Magnitude
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.Magnitude" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.Magnitude" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.Magnitude
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.Magnitude
+[       OK ] Vec_TestGroup.Magnitude (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.Magnitude" end time: Dec 27 20:56 CET
+"Vec_TestGroup.Magnitude" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/15 Testing: Vec_TestGroup.Normalize
+7/15 Test: Vec_TestGroup.Normalize
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=Vec_TestGroup.Normalize" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"Vec_TestGroup.Normalize" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = Vec_TestGroup.Normalize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Vec_TestGroup
+[ RUN      ] Vec_TestGroup.Normalize
+[       OK ] Vec_TestGroup.Normalize (0 ms)
+[----------] 1 test from Vec_TestGroup (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Vec_TestGroup.Normalize" end time: Dec 27 20:56 CET
+"Vec_TestGroup.Normalize" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/15 Testing: CircleCollisionTest.TouchingCircles
+8/15 Test: CircleCollisionTest.TouchingCircles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=CircleCollisionTest.TouchingCircles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"CircleCollisionTest.TouchingCircles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = CircleCollisionTest.TouchingCircles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CircleCollisionTest
+[ RUN      ] CircleCollisionTest.TouchingCircles
+[       OK ] CircleCollisionTest.TouchingCircles (0 ms)
+[----------] 1 test from CircleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"CircleCollisionTest.TouchingCircles" end time: Dec 27 20:56 CET
+"CircleCollisionTest.TouchingCircles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/15 Testing: CircleCollisionTest.OverlappingCircles
+9/15 Test: CircleCollisionTest.OverlappingCircles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=CircleCollisionTest.OverlappingCircles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"CircleCollisionTest.OverlappingCircles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = CircleCollisionTest.OverlappingCircles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CircleCollisionTest
+[ RUN      ] CircleCollisionTest.OverlappingCircles
+[       OK ] CircleCollisionTest.OverlappingCircles (0 ms)
+[----------] 1 test from CircleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"CircleCollisionTest.OverlappingCircles" end time: Dec 27 20:56 CET
+"CircleCollisionTest.OverlappingCircles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/15 Testing: CircleCollisionTest.SeparatedCircles
+10/15 Test: CircleCollisionTest.SeparatedCircles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=CircleCollisionTest.SeparatedCircles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"CircleCollisionTest.SeparatedCircles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = CircleCollisionTest.SeparatedCircles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CircleCollisionTest
+[ RUN      ] CircleCollisionTest.SeparatedCircles
+[       OK ] CircleCollisionTest.SeparatedCircles (0 ms)
+[----------] 1 test from CircleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"CircleCollisionTest.SeparatedCircles" end time: Dec 27 20:56 CET
+"CircleCollisionTest.SeparatedCircles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/15 Testing: CircleCollisionTest.ConcentricCircles
+11/15 Test: CircleCollisionTest.ConcentricCircles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=CircleCollisionTest.ConcentricCircles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"CircleCollisionTest.ConcentricCircles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = CircleCollisionTest.ConcentricCircles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CircleCollisionTest
+[ RUN      ] CircleCollisionTest.ConcentricCircles
+[       OK ] CircleCollisionTest.ConcentricCircles (0 ms)
+[----------] 1 test from CircleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"CircleCollisionTest.ConcentricCircles" end time: Dec 27 20:56 CET
+"CircleCollisionTest.ConcentricCircles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/15 Testing: RectangleCollisionTest.TouchingRectangles
+12/15 Test: RectangleCollisionTest.TouchingRectangles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=RectangleCollisionTest.TouchingRectangles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"RectangleCollisionTest.TouchingRectangles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RectangleCollisionTest.TouchingRectangles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RectangleCollisionTest
+[ RUN      ] RectangleCollisionTest.TouchingRectangles
+[       OK ] RectangleCollisionTest.TouchingRectangles (0 ms)
+[----------] 1 test from RectangleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"RectangleCollisionTest.TouchingRectangles" end time: Dec 27 20:56 CET
+"RectangleCollisionTest.TouchingRectangles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/15 Testing: RectangleCollisionTest.OverlappingRectangles
+13/15 Test: RectangleCollisionTest.OverlappingRectangles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=RectangleCollisionTest.OverlappingRectangles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"RectangleCollisionTest.OverlappingRectangles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RectangleCollisionTest.OverlappingRectangles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RectangleCollisionTest
+[ RUN      ] RectangleCollisionTest.OverlappingRectangles
+[       OK ] RectangleCollisionTest.OverlappingRectangles (0 ms)
+[----------] 1 test from RectangleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"RectangleCollisionTest.OverlappingRectangles" end time: Dec 27 20:56 CET
+"RectangleCollisionTest.OverlappingRectangles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/15 Testing: RectangleCollisionTest.SeparatedRectangles
+14/15 Test: RectangleCollisionTest.SeparatedRectangles
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=RectangleCollisionTest.SeparatedRectangles" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"RectangleCollisionTest.SeparatedRectangles" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RectangleCollisionTest.SeparatedRectangles
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RectangleCollisionTest
+[ RUN      ] RectangleCollisionTest.SeparatedRectangles
+[       OK ] RectangleCollisionTest.SeparatedRectangles (0 ms)
+[----------] 1 test from RectangleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"RectangleCollisionTest.SeparatedRectangles" end time: Dec 27 20:56 CET
+"RectangleCollisionTest.SeparatedRectangles" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/15 Testing: RectangleCollisionTest.ContainedRectangle
+15/15 Test: RectangleCollisionTest.ContainedRectangle
+Command: "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test" "--gtest_filter=RectangleCollisionTest.ContainedRectangle" "--gtest_also_run_disabled_tests"
+Directory: /home/lmilz/Second-Brain/Projects/random-organization/build
+"RectangleCollisionTest.ContainedRectangle" start time: Dec 27 20:56 CET
+Output:
+----------------------------------------------------------
+Running main() from /usr/src/debug/gtest/googletest-1.17.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RectangleCollisionTest.ContainedRectangle
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RectangleCollisionTest
+[ RUN      ] RectangleCollisionTest.ContainedRectangle
+[       OK ] RectangleCollisionTest.ContainedRectangle (0 ms)
+[----------] 1 test from RectangleCollisionTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"RectangleCollisionTest.ContainedRectangle" end time: Dec 27 20:56 CET
+"RectangleCollisionTest.ContainedRectangle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 27 20:56 CET

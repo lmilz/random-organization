@@ -1,0 +1,5 @@
+if(EXISTS "/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test[1]_tests.cmake")
+  include("/home/lmilz/Second-Brain/Projects/random-organization/build/simulation_test[1]_tests.cmake")
+else()
+  add_test(simulation_test_NOT_BUILT simulation_test_NOT_BUILT)
+endif()
