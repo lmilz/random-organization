@@ -52,13 +52,14 @@ void runCirclesSimulation()
     logger.separator();
     logger.blank();
 
-    SimulationConfig config;
-    config.numParticles = 50;
-    config.areaWidth = 50;
-    config.areaHeight = 50;
-    config.maxDisplacement = 0.5;
-    config.maxIterations = 5000;
-    config.periodicBoundary = true;
+    auto config = SimulationConfiguration()
+                      .withShapeType(ShapeTypes::Circle)
+                      .withParticles(50)
+                      .withArea(50, 50)
+                      .withMaxDisplacement(0.5)
+                      .withMaxIterations(5000)
+                      .withPeriodicBoundary(true)
+                      .build();
 
     Simulation sim(config);
 
@@ -77,12 +78,14 @@ void runRectanglesSimulation()
     logger.separator();
     logger.blank();
 
-    SimulationConfig config;
-    config.areaWidth = 50;
-    config.areaHeight = 50;
-    config.maxDisplacement = 0.5;
-    config.maxIterations = 5000;
-    config.periodicBoundary = true;
+    auto config = SimulationConfiguration()
+                      .withShapeType(ShapeTypes::Rectangle)
+                      .withParticles(50)
+                      .withArea(50, 50)
+                      .withMaxDisplacement(0.5)
+                      .withMaxIterations(5000)
+                      .withPeriodicBoundary(true)
+                      .build();
 
     Simulation sim(config);
 
@@ -100,12 +103,14 @@ void runSquaresSimulation()
     logger.separator();
     logger.blank();
 
-    SimulationConfig config;
-    config.areaWidth = 50;
-    config.areaHeight = 50;
-    config.maxDisplacement = 0.5;
-    config.maxIterations = 5000;
-    config.periodicBoundary = true;
+    auto config = SimulationConfiguration()
+                      .withShapeType(ShapeTypes::Square)
+                      .withParticles(50)
+                      .withArea(50, 50)
+                      .withMaxDisplacement(0.5)
+                      .withMaxIterations(5000)
+                      .withPeriodicBoundary(true)
+                      .build();
 
     Simulation sim(config);
 
