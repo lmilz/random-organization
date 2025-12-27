@@ -102,7 +102,7 @@ std::vector<std::pair<size_t, size_t>> Simulation::findOverlaps() const
     std::vector<std::pair<size_t, size_t>> overlaps;
 
     for (size_t i = 0; i < particles.size(); i++) {
-        for (size_t j = 0; j < particles.size(); j++) {
+        for (size_t j = i + 1; j < particles.size(); j++) {
             if (i != j && particles[i]->overlaps(*particles[j])) {
                 overlaps.push_back({i, j});
             }

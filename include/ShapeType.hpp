@@ -20,6 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#ifndef SHAPETYPE_H
+#define SHAPETYPE_H
+
 #include <memory>
 
 #include "Shape.hpp"
@@ -48,3 +51,5 @@ class ShapeType
         throw std::invalid_argument("Unknown shape type");
     }
 };
+
+#endif  // SHAPETYPE_H

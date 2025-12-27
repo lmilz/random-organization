@@ -37,7 +37,11 @@ Rectangle::Rectangle(Vec pos, double w, double h) : Shape(pos), width(w), height
 
 bool Circle::overlaps(const Shape& other) const
 {
-    const Circle* otherCircle = dynamic_cast<const Circle*>(&other);
+    const auto* otherCircle = dynamic_cast<const Circle*>(&other);
+
+    if (!otherCircle) {
+        throw std::invalid_argument("Circle::overlaps called with non-Circle");
+    }
 
     Vec diff = position - otherCircle->getPosition();
     double distance = diff.Magnitude();
@@ -47,7 +51,11 @@ bool Circle::overlaps(const Shape& other) const
 
 bool Rectangle::overlaps(const Shape& other) const
 {
-    const Rectangle* otherRectangle = dynamic_cast<const Rectangle*>(&other);
+    const auto* otherRectangle = dynamic_cast<const Rectangle*>(&other);
+
+    if (!otherRectangle) {
+        throw std::invalid_argument("Rectangle::overlaps called with non-Rectangle");
+    }
 
     return (position.X() < otherRectangle->getPosition().X() + otherRectangle->getWidth()
             && position.X() + width > otherRectangle->getPosition().X()

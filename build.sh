@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Format process..."
-clang-format -style=file:.clang-format -i src/main.cpp src/Shape.cpp src/Simulation.cpp src/Vec.cpp include/ShapeType.hpp include/Shape.hpp include/Simulation.hpp include/Vec.hpp include/Logger.hpp
+clang-format -style=file:.clang-format -i src/main.cpp src/Shape.cpp src/Simulation.cpp src/Vec.cpp include/SimulationConfig.hpp include/ShapeType.hpp include/Shape.hpp include/Simulation.hpp include/Vec.hpp include/Logger.hpp
 
 BUILD_DIR="build"
 

@@ -48,35 +48,7 @@
 
 #include "Shape.hpp"
 #include "ShapeType.hpp"
-
-/**
- * @brief Configuration parameters for simulaton
- *
- * This structure contains all parameters that control the simulation behavior.
- * All parameters have sensible default values.
- */
-struct SimulationConfig {
-    ShapeTypes type;         ///< Type of particle (circle, rectangle, square)
-    uint16_t numParticles;   ///< Number of particles
-    double areaWidth;        ///< Width of the simulation domain
-    double areaHeight;       ///< Height of the simulation domain
-    double maxDisplacement;  ///< Maximum displacement
-    uint16_t maxIterations;  ///< Maximum number of iterations
-    bool periodicBoundary;   ///< Periodic boundary conditions
-    uint32_t seed;           ///< Seed for random number generator
-
-    SimulationConfig()
-        : type(ShapeTypes::Circle),
-          numParticles(10),
-          areaWidth(100.0),
-          areaHeight(100.0),
-          maxDisplacement(1.0),
-          maxIterations(10000),
-          periodicBoundary(true),
-          seed(std::random_device{}())
-    {
-    }
-};
+#include "SimulationConfig.hpp"
 
 /**
  * @brief Main class for particle packing simulation

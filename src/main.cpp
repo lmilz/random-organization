@@ -39,6 +39,7 @@
 
 #include "Logger.hpp"
 #include "Simulation.hpp"
+#include "SimulationConfig.hpp"
 
 /**
  * @brief Demostrates circle packing with low density

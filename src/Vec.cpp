@@ -34,7 +34,7 @@ double Vec::Y() const
     return v[1];
 }
 
-Vec Vec::operator+(Vec& vec) const
+Vec Vec::operator+(const Vec& vec) const
 {
     return Vec(v[0] + vec.X(), v[1] + vec.Y());
 }

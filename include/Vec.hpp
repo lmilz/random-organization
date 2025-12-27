@@ -55,7 +55,7 @@ class Vec
     // Operator overloading for vector addition.
     // @param other: The vector to be added to this vector.
     // @return: A new vector that is the result of the addition.
-    Vec operator+(Vec& vec) const;
+    Vec operator+(const Vec& vec) const;
 
     // Operator overloading for vector subtraction.
     // @param other: The vector to be subtracted from this vector.
