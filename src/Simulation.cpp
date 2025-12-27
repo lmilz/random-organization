@@ -30,7 +30,7 @@
 Simulation::Simulation(const SimulationConfig& cfg)
     : config(cfg),
       rng(cfg.seed),
-      angleDist(0.0, 2.0 * M_PI),
+      angleDist(0.0, 2.0 * std::numbers::pi),
       distDist(0, cfg.maxDisplacement),
       currentIteration(0)
 {
