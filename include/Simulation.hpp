@@ -93,9 +93,8 @@ class Simulation
     SimulationConfig config;                           ///< Configuration parameters
     std::mt19937 rng;                                  ///< Random number generator
     std::uniform_real_distribution<double> angleDist;  ///< Distribution for angles [0, 2pi]
-    std::uniform_real_distribution<double>
-        distDist;               ///< Distribution for distances [0, maxDisplacement]
-    uint16_t currentIteration;  ///< Current iteration
+    std::uniform_real_distribution<double> distDist;   ///< Distribution for distances [0, maxDisplacement]
+    uint16_t currentIteration;                         ///< Current iteration
 
     /**
      * @brief Initializes N random particles
@@ -140,6 +139,8 @@ class Simulation
      * Depending on configuration, either periodic boundary conditions or hard walls are used.
      *
      * @param particle The particle to which boundary conditions are applied
+     *
+     * TODO: Implementation!
      */
     void applyBoundaryConditions(Shape& particle);
 };
