@@ -24,6 +24,13 @@ The simulation uses a "random organization" algorithm:
 - Collision detection for same-type shapes
 - Python visualization script for results
 
+## ToDos
+
+- [ ] Implement boundary conditions
+- [ ] Optimization of collision detection
+- [ ] Improvement of Logger class
+- [ ] Improvement of Vector class
+
 ## Building
 
 ### Requirements
