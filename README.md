@@ -6,7 +6,7 @@ A 2D particle packing simulation that resolves overlapping shapes through iterat
 
 This project is a reimplementation of my [Bachelor's thesis work](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.88.062308). The original code was lost over time, and I decided to rebuild it from scratch as a hobby project to get back into C++ development. It served as a nice opportunity to explore modern C++20 features and refresh my knowledge of physics simulations.
 
-![simulation_result.png]
+![Simulation Result](simulation_result.png)
 
 ## Algorithm
 
