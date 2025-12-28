@@ -32,6 +32,7 @@
 #define SHAPE_H
 
 // Includes
+#include <string>
 #include <variant>
 
 #include "Vec.hpp"

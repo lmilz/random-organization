@@ -40,9 +40,11 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+// Includes
 #include <chrono>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 #include <mutex>
 #include <sstream>
 #include <string>

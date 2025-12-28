@@ -24,6 +24,8 @@
 #define SHAPETYPE_H
 
 // Includes
+#include <stdexcept>
+
 #include "Shape.hpp"
 #include "Vec.hpp"
 
