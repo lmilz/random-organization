@@ -21,7 +21,7 @@ find_package(GTest REQUIRED)
 enable_testing()
 
 # Test executable: Simulation tests
-add_executable(simulation_test test/test_Vec.cpp test/test_Shape.cpp)
+add_executable(simulation_test test/test_Arguments.cpp test/test_Vec.cpp test/test_Shape.cpp)
 
 target_link_libraries(simulation_test PRIVATE simulation_lib GTest::GTest GTest::Main)
 
