@@ -32,6 +32,7 @@
 #define SHAPE_H
 
 // Includes
+#include <stdexcept>
 #include <string>
 #include <variant>
 
@@ -51,7 +52,11 @@ struct CircleData {
      * @param pos Center position
      * @param r Radius (must be > 0)
      */
-    CircleData(const Vec& pos, double r) : position(pos), radius(r) {}
+    CircleData(const Vec& pos, double r) : position(pos), radius(r)
+    {
+        if (r <= 0.0)
+            throw std::invalid_argument("Circle radius must be > 0!");
+    }
 };
 
 /**
@@ -70,7 +75,11 @@ struct RectangleData {
      * @param w Width (must be > 0)
      * @param h Height (must be > 0)
      */
-    RectangleData(const Vec& pos, double w, double h) : position(pos), width(w), height(h) {}
+    RectangleData(const Vec& pos, double w, double h) : position(pos), width(w), height(h)
+    {
+        if (w <= 0.0 || h <= 0.0)
+            throw std::invalid_argument("Area of rectangle must be positive!");
+    }
 };
 
 /**
@@ -87,7 +96,11 @@ struct SquareData {
      * @param pos Center position
      * @param s Size (must be > 0)
      */
-    SquareData(const Vec& pos, double s) : position(pos), size(s) {}
+    SquareData(const Vec& pos, double s) : position(pos), size(s)
+    {
+        if (size <= 0.0)
+            throw std::invalid_argument("Area of square must be positive!");
+    }
 };
 
 /**
