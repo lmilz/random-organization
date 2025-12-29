@@ -26,6 +26,7 @@ The simulation uses a "random organization" algorithm:
 
 ## ToDos
 
+- [ ] Input Validierung
 - [ ] Implement boundary conditions
 - [ ] Optimization of collision detection
 - [ ] Improvement of Logger class
