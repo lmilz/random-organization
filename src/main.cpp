@@ -38,6 +38,7 @@
 
 #include "Logger.hpp"
 #include "ShapeType.hpp"
+#include "Boundary.hpp"
 #include "Simulation.hpp"
 #include "SimulationConfig.hpp"
 
@@ -58,7 +59,7 @@ static void runCirclesSimulation()
                       .withArea(50, 50)
                       .withMaxDisplacement(0.5)
                       .withMaxIterations(5000)
-                      .withPeriodicBoundary(true)
+                      .withBoundaryType(BoundaryTypes::Hardwall)
                       .build();
 
     Simulation sim(config);

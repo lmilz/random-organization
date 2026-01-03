@@ -40,9 +40,11 @@
 
 // Includes
 #include <vector>
+#include <memory>
 
 #include "Shape.hpp"
 #include "ShapeType.hpp"
+#include "Boundary.hpp"
 #include "SimulationConfig.hpp"
 
 /**
@@ -91,6 +93,7 @@ class Simulation
     std::uniform_real_distribution<double>
         distDist_;               ///< Distribution for distances [0, maxDisplacement]
     uint16_t currentIteration_;  ///< Current iteration
+    std::unique_ptr<Boundary> boundary_; ///< Boundary condition handler
 
     /**
      * @brief Initializes N random particles
@@ -135,8 +138,6 @@ class Simulation
      * Depending on configuration, either periodic boundary conditions or hard walls are used.
      *
      * @param particle The particle to which boundary conditions are applied
-     *
-     * TODO: Implementation!
      */
     void applyBoundaryConditions(Shape& particle);
 };

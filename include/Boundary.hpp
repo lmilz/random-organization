@@ -32,11 +32,22 @@
 #define BOUNDARY_H
 
 // Includes
+#include <memory>
 #include <cmath>
 #include <algorithm>
 
 #include "Shape.hpp"
 #include "Vec.hpp"
+
+/**
+ * @brief Enumeration of available boundary condition types
+ */
+enum class BoundaryTypes
+{
+    Hardwall,  ///< Particles stop at boundary
+    Periodic,  ///< Particles wrap around
+    Reflective ///< Particles bounce back
+};
 
 /**
  * @brief Abstract base class for boundary conditions
@@ -128,6 +139,32 @@ class HardwallBoundary : public Boundary
     void apply(Shape& particle, double width, double height) const override {
         Vec pos = getPosition(particle);
         setPosition(particle, Vec(std::clamp(pos.x(), 0.0, width), std::clamp(pos.y(), 0.0, height)));
+    }
+};
+
+/**
+ * @brief Factory for creating boundary conditions
+ *
+ * Creates boundary instances based on the specified type.
+ */
+class BoundaryType
+{
+   public:
+    /**
+     * @brief Factory method to create boundary conditions
+     * @param type The boundary type to create
+     * @return A boundary variant
+     */
+    static std::unique_ptr<Boundary> create(BoundaryTypes type)
+    {
+        switch (type) {
+            case BoundaryTypes::Periodic:
+                return std::make_unique<PeriodicBoundary>();
+            case BoundaryTypes::Reflective:
+                return std::make_unique<ReflectiveBoundary>();
+            case BoundaryTypes::Hardwall:
+                return std::make_unique<HardwallBoundary>();
+        }
     }
 };
 
