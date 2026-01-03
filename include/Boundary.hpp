@@ -33,6 +33,7 @@
 
 // Includes
 #include <cmath>
+#include <algorithm>
 
 #include "Shape.hpp"
 #include "Vec.hpp"
@@ -68,7 +69,17 @@ class PeriodicBoundary : public Boundary
     /**
      * @copydoc Boundary::apply()
      */
-    void apply(Shape& particle, double width, double height) const override {}
+    void apply(Shape& particle, double width, double height) const override {
+        Vec pos = getPosition(particle);
+        
+        double x = std::fmod(pos.x(), width);
+        double y = std::fmod(pos.y(), height);
+        
+        if (x < 0.0) x += width;
+        if (y < 0.0) y += height;
+
+        setPosition(particle, Vec(x, y));
+    }
 };
 
 /**
@@ -83,7 +94,24 @@ class ReflectiveBoundary : public Boundary
     /**
      * @copydoc Boundary::apply()
      */
-    void apply(Shape& particle, double width, double height) const override {}
+    void apply(Shape& particle, double width, double height) const override {
+        Vec pos = getPosition(particle);
+        setPosition(particle, Vec(reflect(pos.x(), width), reflect(pos.y(), height)));
+    }
+
+   private:
+    /**
+     * @brief Reflect one value within the domain [0, max]
+     * @param value Reflected value
+     * @param max Maximal value
+     * @return Reflected value within the domain [0, max]4
+     */
+    static double reflect(double value, double max)
+    {
+        if (value < 0.0) return -value;
+        if (value > max) return max - (value - max);
+        return value;
+    }
 };
 
 /**
@@ -97,7 +125,10 @@ class HardwallBoundary : public Boundary
     /**
      * @copydoc Boundary::apply()
      */
-    void apply(Shape& particle, double width, double height) const override {}
+    void apply(Shape& particle, double width, double height) const override {
+        Vec pos = getPosition(particle);
+        setPosition(particle, Vec(std::clamp(pos.x(), 0.0, width), std::clamp(pos.y(), 0.0, height)));
+    }
 };
 
 #endif  // BOUNDARY_H
