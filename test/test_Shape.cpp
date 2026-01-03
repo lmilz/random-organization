@@ -20,8 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#include <cmath>
+
 #include <gtest/gtest.h>
-#include <cmath>        
 
 #include "Shape.hpp"
 
@@ -29,28 +30,32 @@
 // Circle-Circle collision test
 // =========================================
 
-TEST(CircleCollisionTest, TouchingCircles) {
+TEST(CircleCollisionTest, TouchingCircles)
+{
     auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
     auto c2 = CircleData(Vec(10.0, 0.0), 5.0);
 
     EXPECT_FALSE(overlaps(c1, c2));
 }
 
-TEST(CircleCollisionTest, OverlappingCircles) { 
+TEST(CircleCollisionTest, OverlappingCircles)
+{
     auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
     auto c2 = CircleData(Vec(8.0, 0.0), 5.0);
 
     EXPECT_TRUE(overlaps(c1, c2));
 }
 
-TEST(CircleCollisionTest, SeparatedCircles) {
+TEST(CircleCollisionTest, SeparatedCircles)
+{
     auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
     auto c2 = CircleData(Vec(20.0, 0.0), 5.0);
 
     EXPECT_FALSE(overlaps(c1, c2));
 }
 
-TEST(CircleCollisionTest, ConcentricCircles) {
+TEST(CircleCollisionTest, ConcentricCircles)
+{
     auto c1 = CircleData(Vec(0.0, 0.0), 5.0);
     auto c2 = CircleData(Vec(0.0, 0.0), 3.0);
 
@@ -61,25 +66,29 @@ TEST(CircleCollisionTest, ConcentricCircles) {
 // Rectangle-Rectangle collision test
 // =========================================
 
-TEST(RectangleCollisionTest, TouchingRectangles) {
+TEST(RectangleCollisionTest, TouchingRectangles)
+{
     auto r1 = RectangleData(Vec(0.0, 0.0), 10.0, 10.0);
     auto r2 = RectangleData(Vec(10.0, 0.0), 10.0, 10.0);
     EXPECT_FALSE(overlaps(r1, r2));
 }
 
-TEST(RectangleCollisionTest, OverlappingRectangles) {
+TEST(RectangleCollisionTest, OverlappingRectangles)
+{
     auto r1 = RectangleData(Vec(0.0, 0.0), 10.0, 10.0);
     auto r2 = RectangleData(Vec(8.0, 0.0), 10.0, 10.0);
     EXPECT_TRUE(overlaps(r1, r2));
 }
 
-TEST(RectangleCollisionTest, SeparatedRectangles) {
+TEST(RectangleCollisionTest, SeparatedRectangles)
+{
     auto r1 = RectangleData(Vec(0.0, 0.0), 10.0, 10.0);
     auto r2 = RectangleData(Vec(20.0, 0.0), 10.0, 10.0);
     EXPECT_FALSE(overlaps(r1, r2));
 }
 
-TEST(RectangleCollisionTest, ContainedRectangle) {
+TEST(RectangleCollisionTest, ContainedRectangle)
+{
     auto r1 = RectangleData(Vec(0.0, 0.0), 20.0, 20.0);
     auto r2 = RectangleData(Vec(0.0, 0.0), 5.0, 5.0);
     EXPECT_TRUE(overlaps(r1, r2));

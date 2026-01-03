@@ -40,14 +40,14 @@
  */
 struct SimulationConfig
 {
-    ShapeTypes type;         ///< Type of particle (circle, rectangle, square)
-    uint16_t num_particles;  ///< Number of particles
-    double area_width;       ///< Width of the simulation domain
-    double area_height;      ///< Height of the simulation domain
+    ShapeTypes type;          ///< Type of particle (circle, rectangle, square)
+    uint16_t num_particles;   ///< Number of particles
+    double area_width;        ///< Width of the simulation domain
+    double area_height;       ///< Height of the simulation domain
     double max_displacement;  ///< Maximum displacement
     uint16_t max_iterations;  ///< Maximum number of iterations
     bool periodic_boundary;   ///< Periodic boundary conditions
-    uint32_t seed;           ///< Seed for random number generator
+    uint32_t seed;            ///< Seed for random number generator
 
     SimulationConfig()
         : type(ShapeTypes::Circle)

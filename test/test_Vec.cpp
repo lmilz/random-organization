@@ -20,9 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include <gtest/gtest.h>
 #include <cmath>
-#include <sstream>          
+#include <sstream>
+
+#include <gtest/gtest.h>
 
 #include "Vec.hpp"
 
@@ -33,7 +34,7 @@ TEST(Vec_TestGroup, DefaultConstructor)
     Vec v;
 
     // Verify that the components are initialized to zero
-    EXPECT_DOUBLE_EQ(v.x(), 0.0); 
+    EXPECT_DOUBLE_EQ(v.x(), 0.0);
     EXPECT_DOUBLE_EQ(v.y(), 0.0);
 }
 
@@ -44,7 +45,7 @@ TEST(Vec_TestGroup, ParameterizedConstructor)
     Vec v(1.0, 2.0);
 
     // Verify that the components match the provided values
-    EXPECT_DOUBLE_EQ(v.x(), 1.0); 
+    EXPECT_DOUBLE_EQ(v.x(), 1.0);
     EXPECT_DOUBLE_EQ(v.y(), 2.0);
 }
 
@@ -59,8 +60,8 @@ TEST(Vec_TestGroup, VectorAddition)
     Vec c = a + b;
 
     // Check that the resulting vector is the correct sum
-    EXPECT_DOUBLE_EQ(c.x(), 5.0); 
-    EXPECT_DOUBLE_EQ(c.y(), 7.0);    
+    EXPECT_DOUBLE_EQ(c.x(), 5.0);
+    EXPECT_DOUBLE_EQ(c.y(), 7.0);
 }
 
 // Test: Vector subtraction
@@ -74,8 +75,8 @@ TEST(Vec_TestGroup, VectorSubtraction)
     Vec c = a - b;
 
     // Check that the resulting vector is the correct difference
-    EXPECT_DOUBLE_EQ(c.x(), -3.0); 
-    EXPECT_DOUBLE_EQ(c.y(), -3.0);  
+    EXPECT_DOUBLE_EQ(c.x(), -3.0);
+    EXPECT_DOUBLE_EQ(c.y(), -3.0);
 }
 
 // Test: Scalar multiplication
@@ -85,11 +86,11 @@ TEST(Vec_TestGroup, ScalarMultiplication)
     Vec a(1.0f, 2.0f);
 
     // Multiply the vector by a scalar
-    Vec c = a*5.0f;
+    Vec c = a * 5.0f;
 
     // Check that each component is scaled correctly
-    EXPECT_DOUBLE_EQ(c.x(), 5.0); 
-    EXPECT_DOUBLE_EQ(c.y(), 10.0);   
+    EXPECT_DOUBLE_EQ(c.x(), 5.0);
+    EXPECT_DOUBLE_EQ(c.y(), 10.0);
 }
 
 // Test: Magnitude (length) of a vector
@@ -102,7 +103,8 @@ TEST(Vec_TestGroup, Magnitude)
     double result = vec.magnitude();
 
     // Verify that the magnitude is correct
-    EXPECT_DOUBLE_EQ(result, 5.0);  // Magnitude of (3, 4) should be 5 (3^2 + 4^2 = 25, sqrt(25) = 5)
+    EXPECT_DOUBLE_EQ(result,
+                     5.0);  // Magnitude of (3, 4) should be 5 (3^2 + 4^2 = 25, sqrt(25) = 5)
 }
 
 // Test: Normalization of a vector
