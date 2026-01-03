@@ -68,6 +68,8 @@ void Simulation::run()
 
         for (const auto& [i, j] : overlaps) {
             randomPush(particles_[i], particles_[j]);
+            applyBoundaryConditions(particles_[i]);
+            applyBoundaryConditions(particles_[j]);
         }
 
         currentIteration_++;

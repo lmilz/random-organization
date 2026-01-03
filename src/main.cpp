@@ -85,7 +85,7 @@ static void runRectanglesSimulation()
                       .withArea(50, 50)
                       .withMaxDisplacement(0.5)
                       .withMaxIterations(5000)
-                      .withPeriodicBoundary(true)
+                      .withBoundaryType(BoundaryTypes::Hardwall)
                       .build();
 
     Simulation sim(config);
@@ -110,7 +110,7 @@ static void runSquaresSimulation()
                       .withArea(50, 50)
                       .withMaxDisplacement(0.5)
                       .withMaxIterations(5000)
-                      .withPeriodicBoundary(true)
+                      .withBoundaryType(BoundaryTypes::Hardwall)
                       .build();
 
     Simulation sim(config);
