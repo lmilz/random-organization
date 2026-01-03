@@ -36,9 +36,9 @@
 // Includes
 #include <string>
 
+#include "Boundary.hpp"
 #include "Logger.hpp"
 #include "ShapeType.hpp"
-#include "Boundary.hpp"
 #include "Simulation.hpp"
 #include "SimulationConfig.hpp"
 

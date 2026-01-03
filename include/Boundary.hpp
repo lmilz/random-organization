@@ -32,9 +32,9 @@
 #define BOUNDARY_H
 
 // Includes
-#include <memory>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <memory>
 
 #include "Shape.hpp"
 #include "Vec.hpp"
@@ -44,9 +44,9 @@
  */
 enum class BoundaryTypes
 {
-    Hardwall,  ///< Particles stop at boundary
-    Periodic,  ///< Particles wrap around
-    Reflective ///< Particles bounce back
+    Hardwall,   ///< Particles stop at boundary
+    Periodic,   ///< Particles wrap around
+    Reflective  ///< Particles bounce back
 };
 
 /**
@@ -80,14 +80,17 @@ class PeriodicBoundary : public Boundary
     /**
      * @copydoc Boundary::apply()
      */
-    void apply(Shape& particle, double width, double height) const override {
+    void apply(Shape& particle, double width, double height) const override
+    {
         Vec pos = getPosition(particle);
-        
+
         double x = std::fmod(pos.x(), width);
         double y = std::fmod(pos.y(), height);
-        
-        if (x < 0.0) x += width;
-        if (y < 0.0) y += height;
+
+        if (x < 0.0)
+            x += width;
+        if (y < 0.0)
+            y += height;
 
         setPosition(particle, Vec(x, y));
     }
@@ -105,7 +108,8 @@ class ReflectiveBoundary : public Boundary
     /**
      * @copydoc Boundary::apply()
      */
-    void apply(Shape& particle, double width, double height) const override {
+    void apply(Shape& particle, double width, double height) const override
+    {
         Vec pos = getPosition(particle);
         setPosition(particle, Vec(reflect(pos.x(), width), reflect(pos.y(), height)));
     }
@@ -119,8 +123,10 @@ class ReflectiveBoundary : public Boundary
      */
     static double reflect(double value, double max)
     {
-        if (value < 0.0) return -value;
-        if (value > max) return max - (value - max);
+        if (value < 0.0)
+            return -value;
+        if (value > max)
+            return max - (value - max);
         return value;
     }
 };
@@ -136,9 +142,11 @@ class HardwallBoundary : public Boundary
     /**
      * @copydoc Boundary::apply()
      */
-    void apply(Shape& particle, double width, double height) const override {
+    void apply(Shape& particle, double width, double height) const override
+    {
         Vec pos = getPosition(particle);
-        setPosition(particle, Vec(std::clamp(pos.x(), 0.0, width), std::clamp(pos.y(), 0.0, height)));
+        setPosition(particle,
+                    Vec(std::clamp(pos.x(), 0.0, width), std::clamp(pos.y(), 0.0, height)));
     }
 };
 
@@ -158,12 +166,12 @@ class BoundaryType
     static std::unique_ptr<Boundary> create(BoundaryTypes type)
     {
         switch (type) {
-            case BoundaryTypes::Periodic:
-                return std::make_unique<PeriodicBoundary>();
-            case BoundaryTypes::Reflective:
-                return std::make_unique<ReflectiveBoundary>();
-            case BoundaryTypes::Hardwall:
-                return std::make_unique<HardwallBoundary>();
+        case BoundaryTypes::Periodic:
+            return std::make_unique<PeriodicBoundary>();
+        case BoundaryTypes::Reflective:
+            return std::make_unique<ReflectiveBoundary>();
+        case BoundaryTypes::Hardwall:
+            return std::make_unique<HardwallBoundary>();
         }
     }
 };

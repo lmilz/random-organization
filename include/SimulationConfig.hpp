@@ -30,8 +30,8 @@
 // Includes
 #include <random>
 
-#include "ShapeType.hpp"
 #include "Boundary.hpp"
+#include "ShapeType.hpp"
 
 /**
  * @brief Configuration parameters for simulaton
@@ -41,14 +41,14 @@
  */
 struct SimulationConfig
 {
-    ShapeTypes shape_type;          ///< Type of particle (circle, rectangle, square)
-    uint16_t num_particles;   ///< Number of particles
-    double area_width;        ///< Width of the simulation domain
-    double area_height;       ///< Height of the simulation domain
-    double max_displacement;  ///< Maximum displacement
-    uint16_t max_iterations;  ///< Maximum number of iterations
-    BoundaryTypes boundary_type;   ///< Periodic boundary conditions
-    uint32_t seed;            ///< Seed for random number generator
+    ShapeTypes shape_type;        ///< Type of particle (circle, rectangle, square)
+    uint16_t num_particles;       ///< Number of particles
+    double area_width;            ///< Width of the simulation domain
+    double area_height;           ///< Height of the simulation domain
+    double max_displacement;      ///< Maximum displacement
+    uint16_t max_iterations;      ///< Maximum number of iterations
+    BoundaryTypes boundary_type;  ///< Periodic boundary conditions
+    uint32_t seed;                ///< Seed for random number generator
 
     SimulationConfig()
         : shape_type(ShapeTypes::Circle)

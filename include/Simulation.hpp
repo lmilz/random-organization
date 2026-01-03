@@ -39,12 +39,12 @@
 #define SIMULATION_H
 
 // Includes
-#include <vector>
 #include <memory>
+#include <vector>
 
+#include "Boundary.hpp"
 #include "Shape.hpp"
 #include "ShapeType.hpp"
-#include "Boundary.hpp"
 #include "SimulationConfig.hpp"
 
 /**
@@ -91,9 +91,9 @@ class Simulation
     std::mt19937 rng_;                                  ///< Random number generator
     std::uniform_real_distribution<double> angleDist_;  ///< Distribution for angles [0, 2pi]
     std::uniform_real_distribution<double>
-        distDist_;               ///< Distribution for distances [0, maxDisplacement]
-    uint16_t currentIteration_;  ///< Current iteration
-    std::unique_ptr<Boundary> boundary_; ///< Boundary condition handler
+        distDist_;                        ///< Distribution for distances [0, maxDisplacement]
+    uint16_t currentIteration_;           ///< Current iteration
+    std::unique_ptr<Boundary> boundary_;  ///< Boundary condition handler
 
     /**
      * @brief Initializes N random particles
