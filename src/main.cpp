@@ -36,6 +36,7 @@
 // Includes
 #include <string>
 
+#include "Boundary.hpp"
 #include "Logger.hpp"
 #include "ShapeType.hpp"
 #include "Simulation.hpp"
@@ -58,7 +59,7 @@ static void runCirclesSimulation()
                       .withArea(50, 50)
                       .withMaxDisplacement(0.5)
                       .withMaxIterations(5000)
-                      .withPeriodicBoundary(true)
+                      .withBoundaryType(BoundaryTypes::Hardwall)
                       .build();
 
     Simulation sim(config);
@@ -84,7 +85,7 @@ static void runRectanglesSimulation()
                       .withArea(50, 50)
                       .withMaxDisplacement(0.5)
                       .withMaxIterations(5000)
-                      .withPeriodicBoundary(true)
+                      .withBoundaryType(BoundaryTypes::Hardwall)
                       .build();
 
     Simulation sim(config);
@@ -109,7 +110,7 @@ static void runSquaresSimulation()
                       .withArea(50, 50)
                       .withMaxDisplacement(0.5)
                       .withMaxIterations(5000)
-                      .withPeriodicBoundary(true)
+                      .withBoundaryType(BoundaryTypes::Hardwall)
                       .build();
 
     Simulation sim(config);

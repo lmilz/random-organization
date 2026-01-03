@@ -43,6 +43,7 @@ Simulation::Simulation(const SimulationConfig& cfg)
     , angleDist_(0.0, 2.0 * std::numbers::pi)
     , distDist_(0, cfg.max_displacement)
     , currentIteration_(0)
+    , boundary_(BoundaryType::create(cfg.boundary_type))
 {
     initParticles(cfg.num_particles);
 }
@@ -67,6 +68,8 @@ void Simulation::run()
 
         for (const auto& [i, j] : overlaps) {
             randomPush(particles_[i], particles_[j]);
+            applyBoundaryConditions(particles_[i]);
+            applyBoundaryConditions(particles_[j]);
         }
 
         currentIteration_++;
@@ -105,7 +108,7 @@ void Simulation::initParticles(uint16_t num)
     particles_.reserve(num);
     for (uint16_t index = 0; index < num; index++) {
         Vec const pos(x_dist(rng_), y_dist(rng_));
-        particles_.push_back(ShapeType::create(config_.type, pos));
+        particles_.push_back(ShapeType::create(config_.shape_type, pos));
     }
 }
 
@@ -136,4 +139,9 @@ void Simulation::randomPush(Shape& particle1, Shape& particle2)
     Vec const displacement = direction * distance;
     move(particle1, displacement);
     move(particle2, displacement * (-1.0));
+}
+
+void Simulation::applyBoundaryConditions(Shape& particle)
+{
+    boundary_->apply(particle, config_.area_width, config_.area_height);
 }

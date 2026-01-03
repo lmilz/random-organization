@@ -30,6 +30,7 @@
 // Includes
 #include <random>
 
+#include "Boundary.hpp"
 #include "ShapeType.hpp"
 
 /**
@@ -40,23 +41,23 @@
  */
 struct SimulationConfig
 {
-    ShapeTypes type;          ///< Type of particle (circle, rectangle, square)
-    uint16_t num_particles;   ///< Number of particles
-    double area_width;        ///< Width of the simulation domain
-    double area_height;       ///< Height of the simulation domain
-    double max_displacement;  ///< Maximum displacement
-    uint16_t max_iterations;  ///< Maximum number of iterations
-    bool periodic_boundary;   ///< Periodic boundary conditions
-    uint32_t seed;            ///< Seed for random number generator
+    ShapeTypes shape_type;        ///< Type of particle (circle, rectangle, square)
+    uint16_t num_particles;       ///< Number of particles
+    double area_width;            ///< Width of the simulation domain
+    double area_height;           ///< Height of the simulation domain
+    double max_displacement;      ///< Maximum displacement
+    uint16_t max_iterations;      ///< Maximum number of iterations
+    BoundaryTypes boundary_type;  ///< Periodic boundary conditions
+    uint32_t seed;                ///< Seed for random number generator
 
     SimulationConfig()
-        : type(ShapeTypes::Circle)
+        : shape_type(ShapeTypes::Circle)
         , num_particles(10)
         , area_width(100.0)
         , area_height(100.0)
         , max_displacement(1.0)
         , max_iterations(10000)
-        , periodic_boundary(true)
+        , boundary_type(BoundaryTypes::Hardwall)
         , seed(std::random_device{}())
     {
     }
@@ -88,13 +89,13 @@ class SimulationConfiguration
 
     SimulationConfiguration& withShapeType(ShapeTypes type)
     {
-        config_.type = type;
+        config_.shape_type = type;
         return *this;
     }
 
-    SimulationConfiguration& withPeriodicBoundary(bool periodic = true)
+    SimulationConfiguration& withBoundaryType(BoundaryTypes type)
     {
-        config_.periodic_boundary = periodic;
+        config_.boundary_type = type;
         return *this;
     }
 

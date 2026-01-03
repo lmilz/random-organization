@@ -20,8 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#include <cmath>
+
 #include <gtest/gtest.h>
-#include <cmath>        
 
 #include "Shape.hpp"
 #include "SimulationConfig.hpp"
@@ -30,7 +31,8 @@
 // Circle Data
 // =========================================
 
-TEST(CircleArgument, CircleArea) {
+TEST(CircleArgument, CircleArea)
+{
     EXPECT_THROW(CircleData(Vec(0.0, 0.0), -5.0), std::invalid_argument);
 }
 
@@ -38,11 +40,13 @@ TEST(CircleArgument, CircleArea) {
 // Rectangle Data
 // =========================================
 
-TEST(RectangleArgument, RectangleWidth) {
+TEST(RectangleArgument, RectangleWidth)
+{
     EXPECT_THROW(RectangleData(Vec(0.0, 0.0), -5.0, 3.0), std::invalid_argument);
 }
 
-TEST(RectangleArgument, RectangleHeight) {
+TEST(RectangleArgument, RectangleHeight)
+{
     EXPECT_THROW(RectangleData(Vec(0.0, 0.0), 5.0, -3.0), std::invalid_argument);
 }
 
@@ -50,27 +54,31 @@ TEST(RectangleArgument, RectangleHeight) {
 // Square Data
 // =========================================
 
-TEST(SquareArgument, SquareArea) {
+TEST(SquareArgument, SquareArea)
+{
     EXPECT_THROW(SquareData(Vec(0.0, 0.0), -5.0), std::invalid_argument);
 }
-
 
 // =========================================
 // Simulation Configuration
 // =========================================
 
-TEST(SimConfigArgument, NumParticles) {
+TEST(SimConfigArgument, NumParticles)
+{
     EXPECT_THROW(SimulationConfiguration().withParticles(0).build(), std::invalid_argument);
 }
 
-TEST(SimConfigArgument, MaxIterations) {
+TEST(SimConfigArgument, MaxIterations)
+{
     EXPECT_THROW(SimulationConfiguration().withMaxIterations(0).build(), std::invalid_argument);
 }
 
-TEST(SimConfigArgument, AreaWidth) {
+TEST(SimConfigArgument, AreaWidth)
+{
     EXPECT_THROW(SimulationConfiguration().withArea(-3.0, 5.0).build(), std::invalid_argument);
 }
 
-TEST(SimConfigArgument, AreaHeight) {
+TEST(SimConfigArgument, AreaHeight)
+{
     EXPECT_THROW(SimulationConfiguration().withArea(3.0, -5.0).build(), std::invalid_argument);
 }
