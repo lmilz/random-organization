@@ -38,7 +38,8 @@
  * This structure contains all parameters that control the simulation behavior.
  * All parameters have sensible default values.
  */
-struct SimulationConfig {
+struct SimulationConfig
+{
     ShapeTypes type;         ///< Type of particle (circle, rectangle, square)
     uint16_t numParticles;   ///< Number of particles
     double areaWidth;        ///< Width of the simulation domain
@@ -49,14 +50,14 @@ struct SimulationConfig {
     uint32_t seed;           ///< Seed for random number generator
 
     SimulationConfig()
-        : type(ShapeTypes::Circle),
-          numParticles(10),
-          areaWidth(100.0),
-          areaHeight(100.0),
-          maxDisplacement(1.0),
-          maxIterations(10000),
-          periodicBoundary(true),
-          seed(std::random_device{}())
+        : type(ShapeTypes::Circle)
+        , numParticles(10)
+        , areaWidth(100.0)
+        , areaHeight(100.0)
+        , maxDisplacement(1.0)
+        , maxIterations(10000)
+        , periodicBoundary(true)
+        , seed(std::random_device{}())
     {
     }
 };

@@ -250,7 +250,8 @@ class Logger
     Logger(const std::string& filename = "output.log",
            LogLevel level = LogLevel::INFO,
            bool console = true)
-        : currentLogLevel(level), logToConsole(console)
+        : currentLogLevel(level)
+        , logToConsole(console)
     {
         logFile.open(filename, std::ios::out | std::ios::trunc);
         if (!logFile.is_open()) {
@@ -284,16 +285,16 @@ class Logger
     std::string levelToString(LogLevel level) const
     {
         switch (level) {
-            case LogLevel::DEBUG:
-                return "[DEBUG]   ";
-            case LogLevel::INFO:
-                return "[INFO]    ";
-            case LogLevel::WARNING:
-                return "[WARNING] ";
-            case LogLevel::ERROR:
-                return "[ERROR]   ";
-            default:
-                return "[UNKNOWN] ";
+        case LogLevel::DEBUG:
+            return "[DEBUG]   ";
+        case LogLevel::INFO:
+            return "[INFO]    ";
+        case LogLevel::WARNING:
+            return "[WARNING] ";
+        case LogLevel::ERROR:
+            return "[ERROR]   ";
+        default:
+            return "[UNKNOWN] ";
         }
     }
 

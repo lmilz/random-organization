@@ -43,7 +43,8 @@
  *
  * Represents a circle defined by its center position and radius
  */
-struct CircleData {
+struct CircleData
+{
     Vec position;   ///< Center point of the circle
     double radius;  ///< Radius of the circle
 
@@ -52,7 +53,9 @@ struct CircleData {
      * @param pos Center position
      * @param r Radius (must be > 0)
      */
-    CircleData(const Vec& pos, double r) : position(pos), radius(r)
+    CircleData(const Vec& pos, double r)
+        : position(pos)
+        , radius(r)
     {
         if (r <= 0.0)
             throw std::invalid_argument("Circle radius must be > 0!");
@@ -64,7 +67,8 @@ struct CircleData {
  *
  * Represents a rectangle defined by its center position, width and height.
  */
-struct RectangleData {
+struct RectangleData
+{
     Vec position;   ///< Center point of the rectangle
     double width;   ///< Width of the rectangle
     double height;  ///< Height of the rectangle
@@ -75,7 +79,10 @@ struct RectangleData {
      * @param w Width (must be > 0)
      * @param h Height (must be > 0)
      */
-    RectangleData(const Vec& pos, double w, double h) : position(pos), width(w), height(h)
+    RectangleData(const Vec& pos, double w, double h)
+        : position(pos)
+        , width(w)
+        , height(h)
     {
         if (w <= 0.0 || h <= 0.0)
             throw std::invalid_argument("Area of rectangle must be positive!");
@@ -87,7 +94,8 @@ struct RectangleData {
  *
  * Represents a square defined by its center position and size.
  */
-struct SquareData {
+struct SquareData
+{
     Vec position;  ///< Center point of the rectangle
     double size;   ///< Side length of the square
 
@@ -96,7 +104,9 @@ struct SquareData {
      * @param pos Center position
      * @param s Size (must be > 0)
      */
-    SquareData(const Vec& pos, double s) : position(pos), size(s)
+    SquareData(const Vec& pos, double s)
+        : position(pos)
+        , size(s)
     {
         if (size <= 0.0)
             throw std::invalid_argument("Area of square must be positive!");
@@ -117,7 +127,8 @@ using Shape = std::variant<CircleData, RectangleData, SquareData>;
  * This struct provides operator() overloads for same shape collisions.
  * TODO: Overlap between Circle and Rectangle
  */
-struct OverlapHandler {
+struct OverlapHandler
+{
     /**
      * @brief Check overlap between two circles
      * @param a First circle

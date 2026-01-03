@@ -33,14 +33,20 @@ class Vec
     /**
      * @brief Default constructor: Initializes all components (x, y) to 0.0
      */
-    constexpr Vec() : v{0.0, 0.0} {}
+    constexpr Vec()
+        : v{0.0, 0.0}
+    {
+    }
 
     /**
      * @brief Parameterized constructor: Initializes the vector components with the given values
      * @param x: Value for the x component
      * @param y: Value for the y component
      */
-    constexpr Vec(double x, double y) : v{x, y} {}
+    constexpr Vec(double x, double y)
+        : v{x, y}
+    {
+    }
 
     /**
      * @brief Getter for the x component of the vector
