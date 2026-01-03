@@ -58,12 +58,12 @@ class ShapeType
     static Shape create(ShapeTypes type, const Vec& pos, double size1 = 1.0, double size2 = 1.0)
     {
         switch (type) {
-            case ShapeTypes::Circle:
-                return CircleData(pos, size1);
-            case ShapeTypes::Rectangle:
-                return RectangleData(pos, size1, size2);
-            case ShapeTypes::Square:
-                return SquareData(pos, size1);
+        case ShapeTypes::Circle:
+            return CircleData(pos, size1);
+        case ShapeTypes::Rectangle:
+            return RectangleData(pos, size1, size2);
+        case ShapeTypes::Square:
+            return SquareData(pos, size1);
         }
         throw std::invalid_argument("Unknown shape type");
     }
