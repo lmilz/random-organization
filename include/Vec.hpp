@@ -34,7 +34,7 @@ class Vec
      * @brief Default constructor: Initializes all components (x, y) to 0.0
      */
     constexpr Vec()
-        : v{0.0, 0.0}
+        : v_{0.0, 0.0}
     {
     }
 
@@ -44,7 +44,7 @@ class Vec
      * @param y: Value for the y component
      */
     constexpr Vec(double x, double y)
-        : v{x, y}
+        : v_{x, y}
     {
     }
 
@@ -52,13 +52,13 @@ class Vec
      * @brief Getter for the x component of the vector
      * @return: The x component of the vector
      */
-    [[nodiscard]] constexpr double X() const { return v[0]; }
+    [[nodiscard]] constexpr double x() const { return v_[0]; }
 
     /**
      * @brief Getter for the y component of the vector
      * @return: The y component of the vector
      */
-    [[nodiscard]] constexpr double Y() const { return v[1]; }
+    [[nodiscard]] constexpr double y() const { return v_[1]; }
 
     /**
      * @brief Operator overloading for vector addition
@@ -67,7 +67,7 @@ class Vec
      */
     [[nodiscard]] constexpr Vec operator+(const Vec& vec) const
     {
-        return Vec(v[0] + vec.X(), v[1] + vec.Y());
+        return {v_[0] + vec.x(), v_[1] + vec.y()};
     }
 
     /**
@@ -77,7 +77,7 @@ class Vec
      */
     [[nodiscard]] constexpr Vec operator-(const Vec& vec) const
     {
-        return Vec(v[0] - vec.X(), v[1] - vec.Y());
+        return {v_[0] - vec.x(), v_[1] - vec.y()};
     }
 
     /**
@@ -87,14 +87,14 @@ class Vec
      */
     [[nodiscard]] constexpr Vec operator*(double scalar) const
     {
-        return Vec(v[0] * scalar, v[1] * scalar);
+        return {v_[0] * scalar, v_[1] * scalar};
     }
 
     /**
      * @brief Computes the magnitude (length) of the vector
      * @return: A double value representing the magnitude of the vector
      */
-    [[nodiscard]] double Magnitude() const { return std::sqrt((v[0] * v[0]) + (v[1] * v[1])); }
+    [[nodiscard]] double magnitude() const { return std::sqrt((v_[0] * v_[0]) + (v_[1] * v_[1])); }
 
     /**
      * @brief Normalizes the vector, i.e., scales it so that its length is 1
@@ -103,18 +103,18 @@ class Vec
      *
      * @return: A new vector that is normalized
      */
-    [[nodiscard]] Vec Normalize() const
+    [[nodiscard]] Vec normalize() const
     {
-        const double mag = Magnitude();
-        if (mag == 0.0) {
-            return Vec();
+        const double kmag = magnitude();
+        if (kmag == 0.0) {
+            return {};
         }
 
-        return *this * (1.0 / mag);
+        return *this * (1.0 / kmag);
     }
 
    private:
-    std::array<double, 2> v;  ///< Vector components
+    std::array<double, 2> v_;  ///< Vector components
 };
 
 #endif  // VEC_H

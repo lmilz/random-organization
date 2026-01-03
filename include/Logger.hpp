@@ -103,9 +103,9 @@ class Logger
      */
     ~Logger()
     {
-        if (logFile.is_open()) {
+        if (logFile_.is_open()) {
             log(LogLevel::INFO, "=== Logging finished ===");
-            logFile.close();
+            logFile_.close();
         }
     }
 
@@ -202,8 +202,8 @@ class Logger
      */
     void setLogLevel(LogLevel level)
     {
-        std::lock_guard<std::mutex> lock(logMutex);
-        currentLogLevel = level;
+        std::scoped_lock const lock(logMutex_);
+        currentLogLevel_ = level;
     }
 
     /**
@@ -213,8 +213,8 @@ class Logger
      */
     void setConsoleOutput(bool enable)
     {
-        std::lock_guard<std::mutex> lock(logMutex);
-        logToConsole = enable;
+        std::scoped_lock const lock(logMutex_);
+        logToConsole_ = enable;
     }
 
     /**
@@ -233,10 +233,10 @@ class Logger
     void blank() { log(LogLevel::INFO, ""); }
 
    private:
-    std::ofstream logFile;     ///< Output file stream for logging
-    std::mutex logMutex;       ///< Mutex for thread-safe logging
-    LogLevel currentLogLevel;  ///< Current minimum log level
-    bool logToConsole;         ///< Whether to also log to console
+    std::ofstream logFile_;     ///< Output file stream for logging
+    std::mutex logMutex_;       ///< Mutex for thread-safe logging
+    LogLevel currentLogLevel_;  ///< Current minimum log level
+    bool logToConsole_;         ///< Whether to also log to console
 
     /**
      * @brief Private constructor (singleton pattern)
@@ -250,11 +250,11 @@ class Logger
     Logger(const std::string& filename = "output.log",
            LogLevel level = LogLevel::INFO,
            bool console = true)
-        : currentLogLevel(level)
-        , logToConsole(console)
+        : currentLogLevel_(level)
+        , logToConsole_(console)
     {
-        logFile.open(filename, std::ios::out | std::ios::trunc);
-        if (!logFile.is_open()) {
+        logFile_.open(filename, std::ios::out | std::ios::trunc);
+        if (!logFile_.is_open()) {
             throw std::runtime_error("Failed to open log file: " + filename);
         }
 
@@ -266,7 +266,7 @@ class Logger
      * @brief Get current timestamp as string
      * @return Formatted timestamp string (YY-MM-DD HH:MM:S)
      */
-    std::string getCurrentTimestamp() const
+    static std::string getCurrentTimestamp()
     {
         auto now = std::chrono::system_clock::now();
         auto time = std::chrono::system_clock::to_time_t(now);
@@ -282,7 +282,7 @@ class Logger
      * @param level The log level
      * @return String representation of the log level
      */
-    std::string levelToString(LogLevel level) const
+    static std::string levelToString(LogLevel level)
     {
         switch (level) {
         case LogLevel::DEBUG:
@@ -309,22 +309,24 @@ class Logger
      */
     void log(LogLevel level, const std::string& message)
     {
-        if (level < currentLogLevel)
+        if (level < currentLogLevel_) {
             return;  // Filter out messages below current log level
+        }
 
-        std::lock_guard<std::mutex> lock(logMutex);
+        std::scoped_lock const lock(logMutex_);
 
-        std::string logLine = getCurrentTimestamp() + " " + levelToString(level) + " " + message;
+        std::string const log_line
+            = getCurrentTimestamp() + " " + levelToString(level) + " " + message;
 
         // Write to file
-        if (logFile.is_open()) {
-            logFile << logLine << std::endl;
-            logFile.flush();  // Ensure immediate write
+        if (logFile_.is_open()) {
+            logFile_ << log_line << '\n';
+            logFile_.flush();  // Ensure immediate write
         }
 
         // Write to console
-        if (logToConsole) {
-            std::cout << logLine << std::endl;
+        if (logToConsole_) {
+            std::cout << log_line << '\n';
         }
     }
 };

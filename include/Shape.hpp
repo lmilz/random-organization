@@ -57,8 +57,9 @@ struct CircleData
         : position(pos)
         , radius(r)
     {
-        if (r <= 0.0)
+        if (r <= 0.0) {
             throw std::invalid_argument("Circle radius must be > 0!");
+        }
     }
 };
 
@@ -84,8 +85,9 @@ struct RectangleData
         , width(w)
         , height(h)
     {
-        if (w <= 0.0 || h <= 0.0)
+        if (w <= 0.0 || h <= 0.0) {
             throw std::invalid_argument("Area of rectangle must be positive!");
+        }
     }
 };
 
@@ -108,8 +110,9 @@ struct SquareData
         : position(pos)
         , size(s)
     {
-        if (size <= 0.0)
+        if (size <= 0.0) {
             throw std::invalid_argument("Area of square must be positive!");
+        }
     }
 };
 
@@ -137,8 +140,8 @@ struct OverlapHandler
      */
     bool operator()(const CircleData& a, const CircleData& b) const
     {
-        const Vec diff = a.position - b.position;
-        double distance = diff.Magnitude();
+        const Vec kdiff = a.position - b.position;
+        double const distance = kdiff.magnitude();
 
         return distance < (a.radius + b.radius);
     }
@@ -151,10 +154,10 @@ struct OverlapHandler
      */
     bool operator()(const RectangleData& a, const RectangleData& b) const
     {
-        return a.position.X() < b.position.X() + b.width
-               && a.position.X() + a.width > b.position.X()
-               && a.position.Y() < b.position.Y() + b.height
-               && a.position.Y() + a.height > b.position.Y();
+        return a.position.x() < b.position.x() + b.width
+               && a.position.x() + a.width > b.position.x()
+               && a.position.y() < b.position.y() + b.height
+               && a.position.y() + a.height > b.position.y();
     }
 
     /**
@@ -165,9 +168,9 @@ struct OverlapHandler
      */
     bool operator()(const SquareData& a, const SquareData& b) const
     {
-        return a.position.X() < b.position.X() + b.size && a.position.X() + a.size > b.position.X()
-               && a.position.Y() < b.position.Y() + b.size
-               && a.position.Y() + a.size > b.position.Y();
+        return a.position.x() < b.position.x() + b.size && a.position.x() + a.size > b.position.x()
+               && a.position.y() < b.position.y() + b.size
+               && a.position.y() + a.size > b.position.y();
     }
 
     /**
@@ -177,7 +180,7 @@ struct OverlapHandler
      * @param r Rectangle
      * @return true if shapes overlap
      */
-    bool operator()(const CircleData& c, const RectangleData& r) const { return false; }
+    bool operator()(const CircleData& /*c*/, const RectangleData& /*r*/) const { return false; }
 
     /**
      * @brief Check overlap between rectangle and circle (symmetric)
@@ -190,7 +193,7 @@ struct OverlapHandler
     bool operator()(const CircleData& c, const SquareData& s) const
     {
         // Convert square to rectangle and reuse logic
-        RectangleData rect(s.position, s.size, s.size);
+        RectangleData const rect(s.position, s.size, s.size);
         return (*this)(c, rect);
     }
 
@@ -204,7 +207,7 @@ struct OverlapHandler
      */
     bool operator()(const RectangleData& r, const SquareData& s) const
     {
-        RectangleData rect(s.position, s.size, s.size);
+        RectangleData const rect(s.position, s.size, s.size);
         return (*this)(r, rect);
     }
 

@@ -23,8 +23,18 @@
 #include "Simulation.hpp"
 
 #include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <numbers>
+#include <random>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include "Logger.hpp"
+#include "Shape.hpp"
+#include "ShapeType.hpp"
+#include "SimulationConfig.hpp"
 #include "Vec.hpp"
 
 Simulation::Simulation(const SimulationConfig& cfg)
@@ -51,8 +61,9 @@ void Simulation::Run()
         auto overlaps = findOverlaps();
         logger.info("Iteration ", currentIteration, ": ", overlaps.size(), " overlaps");
 
-        if (overlaps.empty())
+        if (overlaps.empty()) {
             break;
+        }
 
         for (const auto& [i, j] : overlaps) {
             randomPush(particles[i], particles[j]);
@@ -61,16 +72,16 @@ void Simulation::Run()
         currentIteration++;
     }
 
-    auto finalOverlaps = findOverlaps();
+    auto final_overlaps = findOverlaps();
     logger.blank();
     logger.info("Simulation finished!");
     logger.info("Total iterations: ", currentIteration);
-    if (finalOverlaps.empty()) {
+    if (final_overlaps.empty()) {
         logger.info("SUCCESS: No overlaps remaining!");
     }
     else {
         logger.info("System could not resolve all overlaps.");
-        logger.info("Final overlaps: ", finalOverlaps.size());
+        logger.info("Final overlaps: ", final_overlaps.size());
     }
 }
 
@@ -80,49 +91,49 @@ void Simulation::printParticles() const
     logger.blank();
     logger.info("Particle position:");
     for (size_t i = 0; i < particles.size(); i++) {
-        Vec pos = getPosition(particles[i]);
-        std::string typeName = getTypeName(particles[i]);
-        logger.info(i, ": ", typeName, " at (", pos.X(), ", ", pos.Y(), ")");
+        Vec const pos = getPosition(particles[i]);
+        std::string const type_name = getTypeName(particles[i]);
+        logger.info(i, ": ", type_name, " at (", pos.X(), ", ", pos.Y(), ")");
     }
 }
 
 void Simulation::initParticles(uint16_t num)
 {
-    std::uniform_real_distribution<double> xDist(0.0, config.areaWidth);
-    std::uniform_real_distribution<double> yDist(0.0, config.areaHeight);
+    std::uniform_real_distribution<double> x_dist(0.0, config.areaWidth);
+    std::uniform_real_distribution<double> y_dist(0.0, config.areaHeight);
 
     particles.reserve(num);
     for (uint16_t index = 0; index < num; index++) {
-        Vec pos(xDist(rng), yDist(rng));
+        Vec const pos(x_dist(rng), y_dist(rng));
         particles.push_back(ShapeType::create(config.type, pos));
     }
 }
 
 std::vector<std::pair<size_t, size_t>> Simulation::findOverlaps() const
 {
-    std::vector<std::pair<size_t, size_t>> overlapPairs;
+    std::vector<std::pair<size_t, size_t>> overlap_pairs;
 
     for (size_t i = 0; i < particles.size(); i++) {
         for (size_t j = i + 1; j < particles.size(); j++) {
             if (overlaps(particles[i], particles[j])) {
-                overlapPairs.push_back({i, j});
+                overlap_pairs.emplace_back(i, j);
             }
         }
     }
 
-    return overlapPairs;
+    return overlap_pairs;
 }
 
 void Simulation::randomPush(Shape& particle1, Shape& particle2)
 {
     // Random direction
-    double angle = angleDist(rng);
-    Vec direction(std::cos(angle), std::sin(angle));
+    double const angle = angleDist(rng);
+    Vec const direction(std::cos(angle), std::sin(angle));
 
     // Random distance
-    double distance = distDist(rng);
+    double const distance = distDist(rng);
 
-    Vec displacement = direction * distance;
+    Vec const displacement = direction * distance;
     move(particle1, displacement);
     move(particle2, displacement * (-1.0));
 }
