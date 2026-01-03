@@ -2,21 +2,88 @@
 Checks: >
   clang-diagnostic-*,
   clang-analyzer-*,
+  bugprone-*,
+  cert-*,
+  cppcoreguidelines-*,
   readability-*,
   performance-*,
   modernize-*,
-  bugprone-*,
+  portability-*,
   misc-*,
   -readability-identifier-length,
   -readability-magic-numbers,
+  -readability-function-cognitive-complexity,
   -modernize-use-auto,
-  -cppcoreguidelines-avoid-magic-numbers,
-  -modernize-use-nodiscard,
   -modernize-use-trailing-return-type,
+  -modernize-use-nodiscard,
+  -modernize-avoid-c-arrays,
   -bugprone-easily-swappable-parameters,
-  -google-readability-function-size,
-  -google-runtime-int
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-owning-memory,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -cert-err58-cpp
 
-#WarningsAsErrors: '*'
-HeaderFilterRegex: '.hpp'
+CheckOptions:
+  # Naming Conventions - Modern C++
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.TemplateParameterCase
+    value: CamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.MethodCase
+    value: camelBack
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: _
+  - key: readability-identifier-naming.ProtectedMemberSuffix
+    value: _
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumConstantCase
+    value: CamelCase
+  - key: readability-identifier-naming.ConstantCase
+    value: kCamelCase
+  - key: readability-identifier-naming.ConstantPrefix
+    value: k
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: kCamelCase
+  - key: readability-identifier-naming.GlobalConstantPrefix
+    value: k
+  - key: readability-identifier-naming.StaticConstantCase
+    value: kCamelCase
+  - key: readability-identifier-naming.StaticConstantPrefix
+    value: k
+  
+  # Modern C++ preferences
+  - key: modernize-use-nullptr.NullMacros
+    value: 'NULL'
+  - key: modernize-use-default-member-init.UseAssignment
+    value: true
+  - key: modernize-pass-by-value.IncludeStyle
+    value: llvm
+  
+  # Code Quality
+  - key: readability-function-size.LineThreshold
+    value: 100
+  - key: readability-function-size.StatementThreshold
+    value: 80
+  - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value: true
+
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*\.(h|hpp)$'
 FormatStyle: file
