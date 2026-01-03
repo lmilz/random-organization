@@ -70,7 +70,7 @@ class Simulation
     /**
      * @brief Executes the simulation (until convergence or max iterations)
      */
-    void Run();
+    void run();
 
     /**
      * @brief Outputs information about all particles
@@ -84,13 +84,13 @@ class Simulation
     void printParticles() const;
 
    private:
-    std::vector<Shape> particles;                      ///< All particles in the simulation
-    SimulationConfig config;                           ///< Configuration parameters
-    std::mt19937 rng;                                  ///< Random number generator
-    std::uniform_real_distribution<double> angleDist;  ///< Distribution for angles [0, 2pi]
+    std::vector<Shape> particles_;                      ///< All particles in the simulation
+    SimulationConfig config_;                           ///< Configuration parameters
+    std::mt19937 rng_;                                  ///< Random number generator
+    std::uniform_real_distribution<double> angleDist_;  ///< Distribution for angles [0, 2pi]
     std::uniform_real_distribution<double>
-        distDist;               ///< Distribution for distances [0, maxDisplacement]
-    uint16_t currentIteration;  ///< Current iteration
+        distDist_;               ///< Distribution for distances [0, maxDisplacement]
+    uint16_t currentIteration_;  ///< Current iteration
 
     /**
      * @brief Initializes N random particles

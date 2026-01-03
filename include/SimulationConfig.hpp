@@ -41,22 +41,22 @@
 struct SimulationConfig
 {
     ShapeTypes type;         ///< Type of particle (circle, rectangle, square)
-    uint16_t numParticles;   ///< Number of particles
-    double areaWidth;        ///< Width of the simulation domain
-    double areaHeight;       ///< Height of the simulation domain
-    double maxDisplacement;  ///< Maximum displacement
-    uint16_t maxIterations;  ///< Maximum number of iterations
-    bool periodicBoundary;   ///< Periodic boundary conditions
+    uint16_t num_particles;  ///< Number of particles
+    double area_width;       ///< Width of the simulation domain
+    double area_height;      ///< Height of the simulation domain
+    double max_displacement;  ///< Maximum displacement
+    uint16_t max_iterations;  ///< Maximum number of iterations
+    bool periodic_boundary;   ///< Periodic boundary conditions
     uint32_t seed;           ///< Seed for random number generator
 
     SimulationConfig()
         : type(ShapeTypes::Circle)
-        , numParticles(10)
-        , areaWidth(100.0)
-        , areaHeight(100.0)
-        , maxDisplacement(1.0)
-        , maxIterations(10000)
-        , periodicBoundary(true)
+        , num_particles(10)
+        , area_width(100.0)
+        , area_height(100.0)
+        , max_displacement(1.0)
+        , max_iterations(10000)
+        , periodic_boundary(true)
         , seed(std::random_device{}())
     {
     }
@@ -64,67 +64,70 @@ struct SimulationConfig
 
 class SimulationConfiguration
 {
-    SimulationConfig config;
+    SimulationConfig config_;
 
    public:
     SimulationConfiguration& withParticles(uint16_t count)
     {
-        config.numParticles = count;
+        config_.num_particles = count;
         return *this;
     }
 
     SimulationConfiguration& withArea(double width, double height)
     {
-        config.areaWidth = width;
-        config.areaHeight = height;
+        config_.area_width = width;
+        config_.area_height = height;
         return *this;
     }
 
     SimulationConfiguration& withMaxDisplacement(double displacement)
     {
-        config.maxDisplacement = displacement;
+        config_.max_displacement = displacement;
         return *this;
     }
 
     SimulationConfiguration& withShapeType(ShapeTypes type)
     {
-        config.type = type;
+        config_.type = type;
         return *this;
     }
 
     SimulationConfiguration& withPeriodicBoundary(bool periodic = true)
     {
-        config.periodicBoundary = periodic;
+        config_.periodic_boundary = periodic;
         return *this;
     }
 
     SimulationConfiguration& withMaxIterations(uint16_t iterations)
     {
-        config.maxIterations = iterations;
+        config_.max_iterations = iterations;
         return *this;
     }
 
     SimulationConfiguration& withSeed(uint32_t seed)
     {
-        config.seed = seed;
+        config_.seed = seed;
         return *this;
     }
 
     SimulationConfig build() const
     {
         validate();
-        return config;
+        return config_;
     }
 
    private:
     void validate() const
     {
-        if (config.numParticles == 0)
+        if (config_.num_particles == 0) {
             throw std::invalid_argument("Need at least one particle");
-        if (config.areaWidth <= 0 || config.areaHeight <= 0)
+        }
+        if (config_.area_width <= 0 || config_.area_height <= 0) {
             throw std::invalid_argument("Area must be positive");
-        if (config.maxIterations == 0)
+        }
+        if (config_.max_iterations == 0) {
             throw std::invalid_argument("Need at least one iteration");
+        }
     }
 };
 

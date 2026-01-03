@@ -34,17 +34,17 @@
  */
 
 // Includes
-#include <iostream>
-#include <set>
+#include <string>
 
 #include "Logger.hpp"
+#include "ShapeType.hpp"
 #include "Simulation.hpp"
 #include "SimulationConfig.hpp"
 
 /**
  * @brief Demostrates circle packing with low density
  */
-void runCirclesSimulation()
+static void runCirclesSimulation()
 {
     auto& logger = Logger::getInstance();
     logger.separator();
@@ -63,14 +63,14 @@ void runCirclesSimulation()
 
     Simulation sim(config);
 
-    sim.Run();
+    sim.run();
     sim.printParticles();
 }
 
 /**
  * @brief Demostrates circle packing with low density
  */
-void runRectanglesSimulation()
+static void runRectanglesSimulation()
 {
     auto& logger = Logger::getInstance();
     logger.separator();
@@ -89,13 +89,13 @@ void runRectanglesSimulation()
 
     Simulation sim(config);
 
-    sim.Run();
+    sim.run();
 }
 
 /**
  * @brief Demostrates circle packing with low density
  */
-void runSquaresSimulation()
+static void runSquaresSimulation()
 {
     auto& logger = Logger::getInstance();
     logger.separator();
@@ -114,13 +114,13 @@ void runSquaresSimulation()
 
     Simulation sim(config);
 
-    sim.Run();
+    sim.run();
 }
 
 int main(int argc, char* argv[])
 {
-    std::string logFile = (argc > 2) ? argv[2] : "output.log";
-    auto& logger = Logger::getInstance(logFile);
+    std::string const log_file = (argc > 2) ? argv[2] : "output.log";
+    auto& logger = Logger::getInstance(log_file);
 
     logger.separator();
     logger.info("Random Organization Simulation");
@@ -128,7 +128,7 @@ int main(int argc, char* argv[])
     logger.blank();
 
     if (argc > 1) {
-        std::string mode(argv[1]);
+        std::string const mode(argv[1]);
 
         if (mode == "circles") {
             runCirclesSimulation();
@@ -151,7 +151,7 @@ int main(int argc, char* argv[])
 
     logger.blank();
     logger.separator();
-    logger.info("All simulations completed. Results saved to ", logFile);
+    logger.info("All simulations completed. Results saved to ", log_file);
     logger.separator();
 
     return 0;

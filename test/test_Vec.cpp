@@ -33,8 +33,8 @@ TEST(Vec_TestGroup, DefaultConstructor)
     Vec v;
 
     // Verify that the components are initialized to zero
-    EXPECT_DOUBLE_EQ(v.X(), 0.0); 
-    EXPECT_DOUBLE_EQ(v.Y(), 0.0);
+    EXPECT_DOUBLE_EQ(v.x(), 0.0); 
+    EXPECT_DOUBLE_EQ(v.y(), 0.0);
 }
 
 // Test: Parameterized constructor correctly initializes vector components
@@ -44,8 +44,8 @@ TEST(Vec_TestGroup, ParameterizedConstructor)
     Vec v(1.0, 2.0);
 
     // Verify that the components match the provided values
-    EXPECT_DOUBLE_EQ(v.X(), 1.0); 
-    EXPECT_DOUBLE_EQ(v.Y(), 2.0);
+    EXPECT_DOUBLE_EQ(v.x(), 1.0); 
+    EXPECT_DOUBLE_EQ(v.y(), 2.0);
 }
 
 // Test: Vector addition
@@ -59,8 +59,8 @@ TEST(Vec_TestGroup, VectorAddition)
     Vec c = a + b;
 
     // Check that the resulting vector is the correct sum
-    EXPECT_DOUBLE_EQ(c.X(), 5.0); 
-    EXPECT_DOUBLE_EQ(c.Y(), 7.0);    
+    EXPECT_DOUBLE_EQ(c.x(), 5.0); 
+    EXPECT_DOUBLE_EQ(c.y(), 7.0);    
 }
 
 // Test: Vector subtraction
@@ -74,8 +74,8 @@ TEST(Vec_TestGroup, VectorSubtraction)
     Vec c = a - b;
 
     // Check that the resulting vector is the correct difference
-    EXPECT_DOUBLE_EQ(c.X(), -3.0); 
-    EXPECT_DOUBLE_EQ(c.Y(), -3.0);  
+    EXPECT_DOUBLE_EQ(c.x(), -3.0); 
+    EXPECT_DOUBLE_EQ(c.y(), -3.0);  
 }
 
 // Test: Scalar multiplication
@@ -88,8 +88,8 @@ TEST(Vec_TestGroup, ScalarMultiplication)
     Vec c = a*5.0f;
 
     // Check that each component is scaled correctly
-    EXPECT_DOUBLE_EQ(c.X(), 5.0); 
-    EXPECT_DOUBLE_EQ(c.Y(), 10.0);   
+    EXPECT_DOUBLE_EQ(c.x(), 5.0); 
+    EXPECT_DOUBLE_EQ(c.y(), 10.0);   
 }
 
 // Test: Magnitude (length) of a vector
@@ -99,7 +99,7 @@ TEST(Vec_TestGroup, Magnitude)
     Vec vec(3.0, 4.0);
 
     // Compute the magnitude
-    double result = vec.Magnitude();
+    double result = vec.magnitude();
 
     // Verify that the magnitude is correct
     EXPECT_DOUBLE_EQ(result, 5.0);  // Magnitude of (3, 4) should be 5 (3^2 + 4^2 = 25, sqrt(25) = 5)
@@ -112,12 +112,12 @@ TEST(Vec_TestGroup, Normalize)
     Vec vec(3.0, 4.0);
 
     // Normalize the vector
-    Vec result = vec.Normalize();
+    Vec result = vec.normalize();
 
     // Verify that the normalized vector has unit length and correct components
-    EXPECT_DOUBLE_EQ(result.X(), 0.6);  // 3 / 5 = 0.6
-    EXPECT_DOUBLE_EQ(result.Y(), 0.8);  // 4 / 5 = 0.8
+    EXPECT_DOUBLE_EQ(result.x(), 0.6);  // 3 / 5 = 0.6
+    EXPECT_DOUBLE_EQ(result.y(), 0.8);  // 4 / 5 = 0.8
 
     // Verify the magnitude of the normalized vector is 1
-    EXPECT_DOUBLE_EQ(result.Magnitude(), 1.0);
+    EXPECT_DOUBLE_EQ(result.magnitude(), 1.0);
 }
