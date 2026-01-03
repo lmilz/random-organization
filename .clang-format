@@ -1,34 +1,110 @@
 ---
-Language:        Cpp
-BasedOnStyle:    Google
-Standard:        c++20
-IndentWidth:     4
-TabWidth:        4
-UseTab:          Never
-AllowShortFunctionsOnASingleLine: InlineOnly
-AllowShortIfStatementsOnASingleLine: false
-AllowShortLoopsOnASingleLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
-BinPackArguments: false
-BinPackParameters: false
+Language: Cpp
+BasedOnStyle: Google
+Standard: c++20
+
+# Indentation
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+IndentCaseLabels: false
+IndentPPDirectives: AfterHash
+NamespaceIndentation: None
+
+# Line Length
+ColumnLimit: 100
+
+# Braces - Allman-like for classes/functions
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterClass:            true
+  AfterCaseLabel: false
+  AfterClass: true
   AfterControlStatement: false
-  AfterEnum:             true
-  AfterFunction:         true
-  AfterNamespace:        false
-  BeforeElse:            true
-  BeforeCatch:           true
-  SplitEmptyFunction:    true
-ColumnLimit: 100
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: false
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: false
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+
+# Alignment - Modern C++ left-aligned pointers/references
+PointerAlignment: Left
+ReferenceAlignment: Left
+DerivePointerAlignment: false
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: Consecutive
+AlignTrailingComments: true
+AlignOperands: Align
+
+# Short Constructs
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Inline
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+
+# Parameters & Arguments
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: false
+BinPackArguments: false
+BinPackParameters: false
+
+# Binary Operators
 BreakBeforeBinaryOperators: All
+
+# Modern C++ Features
 Cpp11BracedListStyle: true
 SpaceBeforeCpp11BracedList: false
-PointerAlignment: Left
-AlignTrailingComments: true
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+PackConstructorInitializers: Never
+
+# Spaces
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-SpacesInAngles: false
-SortIncludes: true
+SpacesInAngles: Never
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+
+# Include Sorting
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^<[^/]*>$'
+    Priority:        1
+  - Regex:           '^<.*\.h>'
+    Priority:        2
+  - Regex:           '^<.*>'
+    Priority:        3
+  - Regex:           '".*\.hpp"'
+    Priority:        4
+  - Regex:           '".*"'
+    Priority:        5
+
+# Using Declarations
 SortUsingDeclarations: true
+
+# Empty Lines
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+SeparateDefinitionBlocks: Always
+
+# Comments & Namespace
+ReflowComments: true
+FixNamespaceComments: true
+CompactNamespaces: false
