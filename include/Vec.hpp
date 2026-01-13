@@ -20,6 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+/**
+ * @file Vec.hpp
+ * @brief 2D vector mathematics utility class
+ *
+ * Provides a simple 2D vector class with basic operations
+ * (addition, subtraction, scalar multiplication, magnitude, normalization).
+ */
+
 #ifndef VEC_H
 #define VEC_H
 

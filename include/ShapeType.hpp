@@ -20,6 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+/**
+ * @file ShapeType.hpp
+ * @brief Factory for creating geometric shapes
+ *
+ * Provides ShapeTypes enum and ShapeType factory class
+ * to create shape instances based on type specification.
+ */
+
 #ifndef SHAPETYPE_H
 #define SHAPETYPE_H
 
@@ -30,7 +38,7 @@
 #include "Vec.hpp"
 
 /**
- * @brief Enumeration of avaiblable shape types
+ * @brief Enumeration of available shape types
  */
 enum class ShapeTypes
 {
@@ -51,7 +59,7 @@ class ShapeType
      * @brief Create a shape of the specified type
      * @param type The Type of the shape to create
      * @param pos Initial position
-     * @param size1 Primary size (radius for circle, width for rectangle, side for squre)
+     * @param size1 Primary size (radius for circle, width for rectangle, side for square)
      * @param size2 Secondary size (height for rectangle, ignored for others)
      * @return A Shape variant containing the created shape
      */

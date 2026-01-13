@@ -119,7 +119,7 @@ class ReflectiveBoundary : public Boundary
      * @brief Reflect one value within the domain [0, max]
      * @param value Reflected value
      * @param max Maximal value
-     * @return Reflected value within the domain [0, max]4
+     * @return Reflected value within the domain [0, max]
      */
     static double reflect(double value, double max)
     {

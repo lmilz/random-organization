@@ -79,7 +79,7 @@ class Simulation
      *
      * Outputs for each particle:
      * - Index
-     * - Type (Circle, Squre, Rectangle)
+     * - Type (Circle, Square, Rectangle)
      * - Position (x, y)
      * - Shape information
      */
@@ -108,14 +108,14 @@ class Simulation
     void initParticles(uint16_t num);
 
     /**
-     * @brief Finds alls overlapping particle pairs
+     * @brief Finds all overlapping particle pairs
      *
      * Iterates through all possible particle pairs and checks for overlap.
      *
      * @return Vector of pairs (i, j) where particles i and j overlap
      *
      * @note Complexity O(n**2)
-     * @noteEach pair is returned only once (i < j)
+     * @note Each pair is returned only once (i < j)
      */
     std::vector<std::pair<size_t, size_t>> findOverlaps() const;
 
@@ -127,8 +127,8 @@ class Simulation
      * - Random distance (uniform [0, maxDisplacement])
      * - Application of boundary condition after displacement
      *
-     * @param i Index of the first overlapping particle
-     * @param j Index of the second overlapping particle
+     * @param particle1 First overlapping particle (pushed in +direction)
+     * @param particle2 Second overlapping particle (pushed in -direction)
      */
     void randomPush(Shape& particle1, Shape& particle2);
 

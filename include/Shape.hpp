@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 /**
- * @file: Shape.hpp
+ * @file Shape.hpp
  * @brief Geometric shapes for Random Organization Simulation
  *
  * This header defines geometric shapes using std::variant for type-safe collision detection without

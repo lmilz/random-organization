@@ -22,9 +22,9 @@
 
 /**
  * @file main.cpp
- * @brief Demostration program for simulation
+ * @brief Demonstration program for simulation
  *
- * This progra:wm demostrates various scenarios of of random organization.
+ * This program demonstrates various scenarios of random organization.
  *
  * Usage:
  * @code
@@ -43,7 +43,7 @@
 #include "SimulationConfig.hpp"
 
 /**
- * @brief Demostrates circle packing with low density
+ * @brief Demonstrates circle packing simulation
  */
 static void runCirclesSimulation()
 {
@@ -69,7 +69,7 @@ static void runCirclesSimulation()
 }
 
 /**
- * @brief Demostrates circle packing with low density
+ * @brief Demonstrates rectangle packing simulation
  */
 static void runRectanglesSimulation()
 {
@@ -94,7 +94,7 @@ static void runRectanglesSimulation()
 }
 
 /**
- * @brief Demostrates circle packing with low density
+ * @brief Demonstrates square packing simulation
  */
 static void runSquaresSimulation()
 {

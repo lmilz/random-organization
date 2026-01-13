@@ -22,6 +22,10 @@
 
 /**
  * @file SimulationConfig.hpp
+ * @brief Configuration structures for particle simulation
+ *
+ * Defines SimulationConfig struct with all simulation parameters
+ * and a fluent builder class for convenient configuration.
  */
 
 #ifndef SIMULATIONCONFIG_H
@@ -63,6 +67,20 @@ struct SimulationConfig
     }
 };
 
+/**
+ * @brief Builder class for SimulationConfig
+ *
+ * Provides a fluent interface to construct simulation configurations
+ * with validation on build().
+ *
+ * @code
+ * auto config = SimulationConfiguration()
+ *     .withParticles(50)
+ *     .withArea(100.0, 100.0)
+ *     .withBoundaryType(BoundaryTypes::Periodic)
+ *     .build();
+ * @endcode
+ */
 class SimulationConfiguration
 {
     SimulationConfig config_;

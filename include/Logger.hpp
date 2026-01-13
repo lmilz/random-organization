@@ -21,11 +21,11 @@
 // SOFTWARE.
 
 /**
- * @file Logger.h
+ * @file Logger.hpp
  * @brief Thread-safe singleton logger with multiple log levels
  *
  * It supports multiple log levels (DEBUG, INFO, WARNING, ERROR) and writes to both console and file
- * simultaneouosly.
+ * simultaneously.
  *
  * Design Pattern: Singleton
  *
